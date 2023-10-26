@@ -12,6 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import net.rgielen.fxweaver.core.FxmlView;
 import uy.edu.um.UsuariosDTO;
+import uy.edu.um.proyectotic.controladores.Admin.vistaAdminController;
 import uy.edu.um.proyectotic.persistencia.Configuraciones;
 import uy.edu.um.proyectotic.persistencia.UserSession;
 import uy.edu.um.proyectotic.servicios.UsuarioRestService;
@@ -54,7 +55,7 @@ public class loginController {
             switch (permiso) {
                 case 0:
                     System.out.println("Admin");
-                    conf.cambiarPantalla(button_inciarsesion.getScene(), loginController.class,applicationContext);
+                    conf.cambiarPantalla(button_inciarsesion.getScene(), vistaAdminController.class,applicationContext);
                     break;
                 case 1:
                     System.out.println("Aeropuerto");

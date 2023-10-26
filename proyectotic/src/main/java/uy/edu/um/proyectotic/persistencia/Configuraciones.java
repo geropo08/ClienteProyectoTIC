@@ -27,7 +27,6 @@ public class Configuraciones {
         FxWeaver fxWeaver=applicationContext.getBean(FxWeaver.class);
         Parent load=fxWeaver.loadView(clase);
         scene.setRoot(load);
-
     }
     
 }
