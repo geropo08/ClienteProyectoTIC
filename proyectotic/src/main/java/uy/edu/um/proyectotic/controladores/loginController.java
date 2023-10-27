@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -44,7 +45,7 @@ public class loginController {
         ResponseEntity<Boolean> usuarioResponse = usuariosService.login(usuario_login.getText(), contrasena_login.getText());
         Boolean login = usuarioResponse.getBody();
         if (login==false){
-            System.out.println("Error al inicio de sesion");
+            showAlert("Datos Inválidos", "Error al inicio de sesion.");
         } else {
             ResponseEntity<UsuariosDTO> usuarioGet= usuariosService.obtenerUsuario(usuario_login.getText());
             UsuariosDTO usuario=usuarioGet.getBody();
@@ -70,12 +71,19 @@ public class loginController {
                     System.out.println("Usuario");
                     break;
                 default:
-                    System.out.println("Error al inicio de sesion");
+                    showAlert("Datos Inválidos", "Error al inicio de sesion.");
                     break;
             }
         }
 
         
+    }
+    private void showAlert(String title, String contextText) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(contextText);
+        alert.showAndWait();
     }
 
 
