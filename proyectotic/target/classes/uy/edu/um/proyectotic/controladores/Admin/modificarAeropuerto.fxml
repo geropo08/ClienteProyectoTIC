@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="645.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.proyectotic.controladores.Admin.modificarAeropuertoController">
+   <children>
+      <Pane layoutX="8.0" layoutY="10.0" prefHeight="359.0" prefWidth="629.0" style="-fx-background-color: F9F6EE;">
+         <children>
+            <Label layoutX="163.0" layoutY="37.0" scaleX="3.0" scaleY="3.0" text="Modificar Aeropuerto" />
+            <Button fx:id="botonAtrasCrearAeropuerto" layoutX="22.0" layoutY="33.0" mnemonicParsing="false" text="←" onAction="#atras"/>
+            <Button fx:id="botonEviarCrearAeropuerto" layoutX="167.0" layoutY="320.0" mnemonicParsing="false" text="Enviar" onAction="#crearAeropuerto"/>
+            <Label layoutX="46.0" layoutY="232.0" text="Cantidad Mangas" />
+            <Label layoutX="47.0" layoutY="261.0" text="Cantidad Puertas" />
+            <TextField fx:id="cantidadMangasAeropuerto" layoutX="158.0" layoutY="228.0" />
+            <TextField fx:id="contrasenaAeropuerto" layoutX="158.0" layoutY="198.0" />
+            <TextField fx:id="codigoIataAeropuerto" layoutX="156.0" layoutY="167.0" />
+            <TextField fx:id="emailCrearAeropuerto" layoutX="156.0" layoutY="135.0" />
+            <TextField fx:id="paisCrearAeropuerto" layoutX="156.0" layoutY="101.0" />
+            <TextField fx:id="nombreCearAeropuerto" layoutX="156.0" layoutY="67.0" />
+            <Label layoutX="49.0" layoutY="71.0" text="Nombre" />
+            <Label layoutX="52.0" layoutY="105.0" text="País" />
+            <Label layoutX="48.0" layoutY="139.0" text="Email" />
+            <Label layoutX="51.0" layoutY="171.0" text="Código IATA" />
+            <Label layoutX="49.0" layoutY="202.0" text="Contraseña" />
+            <TextField fx:id="cantidadPuertasAeropuerto" layoutX="158.0" layoutY="257.0" />
+            <Label layoutX="47.0" layoutY="288.0" text="Cantidad Puestos" textAlignment="CENTER" />
+            <TextField fx:id="cantidadPuestosCheckInAeropuerto" layoutX="158.0" layoutY="286.0" />
+         </children>
+         <effect>
+            <DropShadow radius="14.68" spread="0.15" width="39.72">
+               <color>
+                  <Color opacity="0.6572948098182678" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
+   </children>
+</Pane>
