@@ -38,45 +38,41 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.proyectotic.controladores.Aeropuerto.vistaAeropuertoController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
         <Menu mnemonicParsing="false" text="Aerolinas">
           <items>
-            <MenuItem mnemonicParsing="false" text="Asociar Aerolinea" />
-                  <MenuItem mnemonicParsing="false" text="Buscar/Desvincular Aerolinea" />
-            <MenuItem mnemonicParsing="false" text="Info gral/informes" />
+            <MenuItem mnemonicParsing="false" text="Asociar Aerolinea" onAction="#asocioarAerolinea" />
+                  <MenuItem mnemonicParsing="false" text="Buscar Aerolinea" onAction="#buscarAerolinea"/>
+            <MenuItem mnemonicParsing="false" text="Informes" onAction="#informesAerolineas"/>
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Vuelos">
                <items>
-                  <MenuItem fx:id="AceptarVuelo" mnemonicParsing="false" text="Aceptar vuelos" />
-                  <MenuItem mnemonicParsing="false" text="Eliminar vuelo" />
-                  <MenuItem mnemonicParsing="false" text="Modificar vuelo" />
-                  <MenuItem mnemonicParsing="false" text="Buscar vuelo" />
-                  <MenuItem mnemonicParsing="false" text="Info gral/informes" />
+                  <MenuItem fx:id="AceptarVuelo" mnemonicParsing="false" text="Aceptar vuelos" onAction="#aceptarVuelos"/>
+                  <MenuItem mnemonicParsing="false" text="Buscar vuelo" onAction="#buscarVuelos"/>
+                  <MenuItem mnemonicParsing="false" text="Informes" onAction="#informesVuelos"/>
                </items>
         </Menu>
             <Menu mnemonicParsing="false" text="Tiendas">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Crear tienda" />
-                  <MenuItem mnemonicParsing="false" text="Buscar/Eliminar tienda" />
-                  <MenuItem mnemonicParsing="false" text="Modificar tienda" />
-                  <MenuItem mnemonicParsing="false" text="Info gral/informes" />
+                  <MenuItem mnemonicParsing="false" text="Crear tienda" onAction="#crearTiendas"/>
+                  <MenuItem mnemonicParsing="false" text="Buscar tienda" onAction="#buscarTiendas"/>
+                  <MenuItem mnemonicParsing="false" text="Informes" onAction="#informesTiendas"/>
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Empleados">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Crear empleado" />
-                  <MenuItem mnemonicParsing="false" text="Modificar empleado" />
-                  <MenuItem mnemonicParsing="false" text="Buscar/Eliminar empleado" />
+                  <MenuItem mnemonicParsing="false" text="Crear empleado" onAction="#crearEmpleado"/>
+                  <MenuItem mnemonicParsing="false" text="Buscar empleado" onAction="#buscarEmpleado"/>
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Aeropuerto">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Modificar Informacion" />
-                  <Menu mnemonicParsing="false" text="Informes" />
+                  <MenuItem mnemonicParsing="false" text="Modificar Informacion" onAction="#modificarInformacion"/>
+                  <Menu mnemonicParsing="false" text="Informes" onAction="#informesAeropuerto"/>
                </items>
             </Menu>
       </menus>

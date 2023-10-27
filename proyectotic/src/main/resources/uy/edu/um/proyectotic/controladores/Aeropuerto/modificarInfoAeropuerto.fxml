@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="645.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.proyecto.proyectotic.Controladores.creacionAeropuertoController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="645.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.proyectotic.controladores.Aeropuerto.modificatInforAeropuertoController">
    <children>
       <Pane layoutX="7.0" layoutY="10.0" prefHeight="359.0" prefWidth="634.0" style="-fx-background-color: F9F6EE;">
          <children>
             <Label layoutX="186.0" layoutY="50.0" scaleX="3.0" scaleY="3.0" text="Modificar Aeropuerto" />
             <Button fx:id="botonAtrasModificarAeropuerto" layoutX="21.0" layoutY="47.0" mnemonicParsing="false" onAction="#atras" text="←" />
-            <Button fx:id="botonModificarAeropuerto" layoutX="215.0" layoutY="313.0" mnemonicParsing="false" onAction="#crearAeropuerto" text="Confirmar" />
+            <Button fx:id="botonModificarAeropuerto" layoutX="215.0" layoutY="313.0" mnemonicParsing="false" onAction="#guardarAeropuerto" text="Confirmar" />
             <Label layoutX="33.0" layoutY="203.0" text="Capacidad Maxima" />
             <Label layoutX="47.0" layoutY="215.0" text="de Aeronaves" />
             <Label layoutX="62.0" layoutY="105.0" text="Mangas" />
