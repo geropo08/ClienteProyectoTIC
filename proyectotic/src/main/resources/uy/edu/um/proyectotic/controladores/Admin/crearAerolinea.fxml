@@ -16,15 +16,17 @@
       <TextField fx:id="sede_principal_aerolinea_reg_aeropuerto" layoutX="156.0" layoutY="123.0" />
       <Label layoutX="72.0" layoutY="164.0" text="Contacto" />
       <TextField fx:id="contacto_aerolinea_reg_aeropuerto" layoutX="156.0" layoutY="160.0" />
-      <Label layoutX="72.0" layoutY="203.0" text="Codigo" />
+      <Label layoutX="74.0" layoutY="203.0" text="Codigo" />
       <TextField fx:id="codigo_aerolinea_reg_aeropuerto" layoutX="156.0" layoutY="199.0" />
-      <Button fx:id="enviar_aerolinea_aeropuerto" layoutX="253.0" layoutY="264.0" mnemonicParsing="false" onAction="#crearAereolinea" text="Enviar" />
-      <Button fx:id="botonAtrasCrearAerolinea" layoutX="173.0" layoutY="262.0" mnemonicParsing="false" onAction="#atras" text="←">
+      <Button fx:id="enviar_aerolinea_aeropuerto" layoutX="257.0" layoutY="332.0" mnemonicParsing="false" onAction="#crearAereolinea" text="Enviar" />
+      <Button fx:id="botonAtrasCrearAerolinea" layoutX="173.0" layoutY="330.0" mnemonicParsing="false" onAction="#atras" text="←">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Label layoutX="71.0" layoutY="235.0" text="Contraseña" />
-      <TextField fx:id="contrasenaAerolineaCreacion" layoutX="156.0" layoutY="231.0" />
+      <Label layoutX="72.0" layoutY="281.0" text="Contraseña" />
+      <TextField fx:id="contrasenaAerolineaCreacion" layoutX="156.0" layoutY="277.0" />
+      <TextField fx:id="emailAerolineaCreacion" layoutX="156.0" layoutY="240.0" />
+      <Label layoutX="79.0" layoutY="244.0" text="Email" />
    </children>
 </Pane>

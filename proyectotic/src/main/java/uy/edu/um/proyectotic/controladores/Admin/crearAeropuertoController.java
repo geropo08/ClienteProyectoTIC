@@ -6,7 +6,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import net.rgielen.fxweaver.core.FxmlView;
-import uy.edu.um.AerolineaTransporte;
 import uy.edu.um.AeropuertoTransporte;
 import uy.edu.um.proyectotic.persistencia.Configuraciones;
 import uy.edu.um.proyectotic.servicios.AeropuertoRestService;
@@ -14,10 +13,8 @@ import uy.edu.um.proyectotic.servicios.AeropuertoRestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.client.HttpClientErrorException;
 
 @Controller
 @FxmlView("crearAeropuerto.fxml")
