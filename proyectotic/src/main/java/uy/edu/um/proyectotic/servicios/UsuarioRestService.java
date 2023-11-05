@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import uy.edu.um.UsuarioTransporte;
 import uy.edu.um.UsuariosDTO;
 
 @Component
@@ -20,6 +21,19 @@ public class UsuarioRestService {
     public ResponseEntity<UsuariosDTO> obtenerUsuario(String email){
         
         return restTemplate.getForEntity("http://localhost:8080/getUsuarios/"+email, UsuariosDTO.class);
+    }
+
+    public ResponseEntity<UsuarioTransporte> crearEmpleado(String email, String contrasena, String nombre, String apellido, String rol, String licenciaPiloto, int permiso, String empresa){
+        UsuariosDTO usr = new UsuariosDTO();
+        usr.setApellido(apellido);
+        usr.setNombre(nombre);
+        usr.setRol(rol);
+        usr.setEmpresa(empresa);
+        usr.setPermiso(permiso);
+        usr.setEmail(email);
+        usr.setContrasena(contrasena);
+        UsuarioTransporte usuarioTransporte= new UsuarioTransporte(usr, licenciaPiloto);
+        return restTemplate.postForEntity("http://localhost:8080/addUsuarios", usuarioTransporte, UsuarioTransporte.class);
     }
     
 }

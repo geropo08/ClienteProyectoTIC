@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="645.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.proyectotic.controladores.crearEmpleadoController">
+   <children>
+      <Pane layoutX="131.0" layoutY="10.0" prefHeight="359.0" prefWidth="383.0" style="-fx-background-color: F9F6EE;">
+         <children>
+            <Label layoutX="154.0" layoutY="50.0" scaleX="3.0" scaleY="3.0" text="Crear empleado" />
+            <Button fx:id="botonAtrasCrearEmpleado" onAction="#atras" layoutX="23.0" layoutY="46.0" mnemonicParsing="false" text="←" />
+            <Button fx:id="botonCrearEmpleado" onAction="#crearEmpleado" layoutX="166.0" layoutY="294.0" mnemonicParsing="false" text="Crear" />
+            <Label layoutX="52.0" layoutY="198.0" text="Rol/tarea" />
+            <ComboBox fx:id="rolesEmpleado" layoutX="130.0" layoutY="194.0" prefWidth="150.0" />
+            <Label layoutX="52.0" layoutY="228.0" text="Contraseña" />
+            <TextField fx:id="contrasenaCrearEmpleado" layoutX="130.0" layoutY="224.0" />
+            <Label fx:id="licenciaPilotoLabel" layoutX="52.0" layoutY="263.0" text="Licencia Piloto"  />
+            <TextField fx:id="licenciaPiloto" layoutX="130.0" layoutY="259.0" />
+         </children>
+         <effect>
+            <DropShadow radius="14.68" spread="0.15" width="39.72">
+               <color>
+                  <Color opacity="0.6572948098182678" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
+      <Label layoutX="183.0" layoutY="103.0" text="Nombre" />
+      <Label layoutX="183.0" layoutY="138.0" text="Apellido" />
+      <Label layoutX="183.0" layoutY="172.0" text="Email" />
+      <TextField fx:id="nombreCearEmpleado" layoutX="261.0" layoutY="99.0" />
+      <TextField fx:id="apellidoCrearEmpleado" layoutX="261.0" layoutY="134.0" />
+      <TextField fx:id="emailCrearEmpleado" layoutX="261.0" layoutY="168.0" />
+   </children>
+</Pane>
