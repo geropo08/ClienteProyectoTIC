@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import net.rgielen.fxweaver.core.FxmlView;
 import uy.edu.um.AerolineaTransporte;
-import uy.edu.um.AeropuertoTransporte;
+
 import uy.edu.um.proyectotic.persistencia.Configuraciones;
 import uy.edu.um.proyectotic.servicios.AerolineaRestService;
 
