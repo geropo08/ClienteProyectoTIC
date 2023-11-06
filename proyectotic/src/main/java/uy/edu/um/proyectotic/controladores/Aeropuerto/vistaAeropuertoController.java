@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import net.rgielen.fxweaver.core.FxmlView;
-import uy.edu.um.proyectotic.controladores.Admin.crearAerolineasController;
 import uy.edu.um.proyectotic.persistencia.Configuraciones;
 
 import org.springframework.beans.factory.annotation.Autowired;

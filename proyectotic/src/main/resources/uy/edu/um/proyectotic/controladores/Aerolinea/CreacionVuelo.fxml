@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="645.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.proyectotic.controladores.Aerolinea.crearVueloController">
+   <children>
+      <Text layoutX="162.0" layoutY="54.0" scaleX="3.0" scaleY="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Creación Vuelo" />
+      <TextField fx:id="matriculaAvionCreacionVuelo" layoutX="145.0" layoutY="131.0" />
+      <DatePicker fx:id="fechaSalidaCreacionVuelo" layoutX="406.0" layoutY="90.0" />
+      <TextField fx:id="horaSalidaCreacionVuelo" layoutX="406.0" layoutY="131.0" />
+      <DatePicker fx:id="fechaLlegadaCreacionVuelo" layoutX="406.0" layoutY="169.0" />
+      <TextField fx:id="horaLlegadaCrecionVuelo" layoutX="406.0" layoutY="209.0" />
+      <Label layoutX="19.0" layoutY="135.0" text="Matrícula de aeronave" />
+      <Label layoutX="312.0" layoutY="94.0" text="Fecha de salida" />
+      <Label layoutX="312.0" layoutY="135.0" text="Hora de salida" />
+      <Label layoutX="305.0" layoutY="173.0" text="Fecha de llegada" />
+      <Label layoutX="308.0" layoutY="213.0" text="Hora de llegada" />
+      <Button fx:id="botonCrearVuelo" layoutX="458.0" layoutY="263.0" mnemonicParsing="false" onAction="#crearVuelo" text="Crear" />
+      <Button fx:id="atrasCreacionVuelo" layoutX="33.0" layoutY="37.0" mnemonicParsing="false" onAction="#atras" text="←" />
+      <Label layoutX="33.0" layoutY="151.0" prefHeight="43.0" prefWidth="206.0" text="Codigo IATA " />
+      <Label layoutX="10.0" layoutY="178.0" text="de Aeropuerto de salida" />
+      <Label layoutX="38.0" layoutY="202.0" text="Codigo IATA" />
+      <Label layoutX="8.0" layoutY="213.0" text="de Aeropuerto de llegada" />
+      <Label layoutX="64.0" layoutY="253.0" text="Piloto" />
+      <ComboBox fx:id="comboBoxIataSalida" editable="true" layoutX="144.0" layoutY="169.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboBoxIataLlegada" editable="true" layoutX="144.0" layoutY="209.0" prefWidth="150.0" />
+      <TextField fx:id="numeroVuelo" layoutX="145.0" layoutY="90.0" />
+      <Label layoutX="55.0" layoutY="94.0" text="N° Vuelo" />
+      <ComboBox fx:id="comboBoxPilotos" editable="true" layoutX="144.0" layoutY="251.0" prefWidth="150.0" />
+   </children>
+</Pane>

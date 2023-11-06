@@ -31,6 +31,7 @@ public class vistaAerolineaController {
     }
     @FXML
     public void crearVuelo(ActionEvent actionEvent) {
+        conf.cambiarPantalla(botonCerrarSesionAerolinea.getScene(), crearVueloController.class,applicationContext);
     }
     @FXML
     public void buscarVuelo(ActionEvent actionEvent) {

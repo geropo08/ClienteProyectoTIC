@@ -1,6 +1,9 @@
 package uy.edu.um.proyectotic.servicios;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -9,6 +12,7 @@ import uy.edu.um.AeropuertoTransporte;
 
 import uy.edu.um.AeropuertosDTO;
 import uy.edu.um.AsociacionTransporte;
+
 
 @Component
 public class AeropuertoRestService {
@@ -44,6 +48,8 @@ public class AeropuertoRestService {
         return restTemplate.postForEntity("http://localhost:8080/asociarAerolineasAeropuertos", aTransporte, AsociacionTransporte.class);
 
     }
+
+
 
 
     

@@ -13,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import net.rgielen.fxweaver.core.FxmlView;
 import uy.edu.um.AsociacionTransporte;
-import uy.edu.um.AvionesDTO;
 import uy.edu.um.proyectotic.controladores.Aerolinea.vistaAerolineaController;
 import uy.edu.um.proyectotic.persistencia.Configuraciones;
 import uy.edu.um.proyectotic.persistencia.UserSession;
