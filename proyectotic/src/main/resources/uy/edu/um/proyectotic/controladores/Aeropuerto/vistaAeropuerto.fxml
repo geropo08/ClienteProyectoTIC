@@ -44,7 +44,7 @@
       <menus>
         <Menu mnemonicParsing="false" text="Aerolinas">
           <items>
-            <MenuItem mnemonicParsing="false" text="Asociar Aerolinea" onAction="#asocioarAerolinea" />
+            <MenuItem mnemonicParsing="false" text="Asociar Aerolinea" onAction="#asociarAerolinea" />
                   <MenuItem mnemonicParsing="false" text="Buscar Aerolinea" onAction="#buscarAerolinea"/>
             <MenuItem mnemonicParsing="false" text="Informes" onAction="#informesAerolineas"/>
           </items>

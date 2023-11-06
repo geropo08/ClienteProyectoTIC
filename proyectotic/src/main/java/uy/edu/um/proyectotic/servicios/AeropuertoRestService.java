@@ -8,6 +8,7 @@ import org.springframework.web.client.RestTemplate;
 import uy.edu.um.AeropuertoTransporte;
 
 import uy.edu.um.AeropuertosDTO;
+import uy.edu.um.AsociacionTransporte;
 
 @Component
 public class AeropuertoRestService {
@@ -36,6 +37,12 @@ public class AeropuertoRestService {
         AeropuertoTransporte aeropuertoTransporte=new AeropuertoTransporte(aeropuertosDTO,mail,contrasena);
         
         return restTemplate.postForEntity("http://localhost:8080/crearAeropuertos", aeropuertoTransporte, AeropuertoTransporte.class);
+    }
+
+    public ResponseEntity<AsociacionTransporte> asociarAerolinea(String aerolinea, String aeropuerto){
+        AsociacionTransporte aTransporte=new AsociacionTransporte(aerolinea,aeropuerto);
+        return restTemplate.postForEntity("http://localhost:8080/asociarAerolineasAeropuertos", aTransporte, AsociacionTransporte.class);
+
     }
 
 

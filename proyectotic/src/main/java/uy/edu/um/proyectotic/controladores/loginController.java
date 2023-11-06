@@ -15,6 +15,7 @@ import net.rgielen.fxweaver.core.FxmlView;
 import uy.edu.um.UsuariosDTO;
 import uy.edu.um.proyectotic.controladores.Admin.vistaAdminController;
 import uy.edu.um.proyectotic.controladores.Aerolinea.vistaAerolineaController;
+import uy.edu.um.proyectotic.controladores.Aeropuerto.vistaAeropuertoController;
 import uy.edu.um.proyectotic.persistencia.Configuraciones;
 import uy.edu.um.proyectotic.persistencia.UserSession;
 import uy.edu.um.proyectotic.servicios.UsuarioRestService;
@@ -61,7 +62,7 @@ public class loginController {
                     break;
                 case 1:
                     System.out.println("Aeropuerto");
-                    conf.cambiarPantalla(button_inciarsesion.getScene(), loginController.class,applicationContext);
+                    conf.cambiarPantalla(button_inciarsesion.getScene(), vistaAeropuertoController.class,applicationContext);
                     break;
                 case 2:
                     conf.cambiarPantalla(button_inciarsesion.getScene(), vistaAerolineaController.class,applicationContext);

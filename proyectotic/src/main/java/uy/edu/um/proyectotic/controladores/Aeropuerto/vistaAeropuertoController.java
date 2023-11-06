@@ -4,18 +4,28 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import net.rgielen.fxweaver.core.FxmlView;
+import uy.edu.um.proyectotic.controladores.Admin.crearAerolineasController;
+import uy.edu.um.proyectotic.persistencia.Configuraciones;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 
 @Controller
 @FxmlView("vistaAeropuerto.fxml")
 public class vistaAeropuertoController {
+    @Autowired
+    Configuraciones conf;
+    @Autowired
+    ConfigurableApplicationContext applicationContext;
     @FXML
     private Button BotonCerrarSesionAerolinea;
 
     @FXML
     private MenuItem AceptarVuelo;
 
-    public void asocioarAerolinea(ActionEvent actionEvent) {
+    public void asociarAerolinea(ActionEvent actionEvent) {
+        conf.cambiarPantalla(BotonCerrarSesionAerolinea.getScene(), asociarAerolineaController.class,applicationContext);
     }
 
     public void buscarAerolinea(ActionEvent actionEvent) {
