@@ -50,7 +50,7 @@
 		<dependency>
             <groupId>uy.edu.um</groupId>
             <artifactId>proyectocommons</artifactId>
-            <version>1.4-SNAPSHOT</version>
+            <version>1.8-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
 
