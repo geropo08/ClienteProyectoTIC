@@ -4,15 +4,20 @@ package uy.edu.um.proyectotic.servicios;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import uy.edu.um.AerolineasDTO;
 import uy.edu.um.AeropuertoTransporte;
 
 import uy.edu.um.AeropuertosDTO;
 import uy.edu.um.AsociacionTransporte;
 import uy.edu.um.PuertasPistasTransporte;
+
+import java.util.List;
 
 
 @Component
@@ -49,14 +54,13 @@ public class AeropuertoRestService {
         return restTemplate.postForEntity("http://localhost:8080/asociarAerolineasAeropuertos", aTransporte, AsociacionTransporte.class);
 
     }
-
     public ResponseEntity<PuertasPistasTransporte> crearPuertas(String aerolinea, List<String> listaPuertas){
         PuertasPistasTransporte pTransporte=new PuertasPistasTransporte(aerolinea,listaPuertas);
         return restTemplate.postForEntity("http://localhost:8080/crearPuertas", pTransporte, PuertasPistasTransporte.class);
     }
 
-
-
-
+    public ResponseEntity<List<AeropuertosDTO>> getAeropuertos(){
+        return restTemplate.exchange("http://localhost:8080/getAeropuertos", HttpMethod.GET, null, new ParameterizedTypeReference<List<AeropuertosDTO>>() {});
+    }
     
 }

@@ -4,24 +4,20 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.stereotype.Controller;
-
-import java.awt.*;
+import javafx.scene.control.*;
 
 @Controller
 @FxmlView("modificarAerolinea.fxml")
 public class modificarAerolineaController {
 
     @FXML
-    private TextField nombre_aerolinea_reg_aeropuerto;
+    private TextField modificarNombreAerolinea;
 
     @FXML
-    private TextField sede_principal_aerolinea_reg_aeropuerto;
+    private TextField modificarContactoAerolinea;
 
     @FXML
-    private TextField contacto_aerolinea_reg_aeropuerto;
-
-    @FXML
-    private TextField codigo_aerolinea_reg_aeropuerto;
+    private TextField modificarSedePrincipalAerolinea;
 
     @FXML
     private Button botonAtrasCrearAerolinea;
@@ -30,7 +26,12 @@ public class modificarAerolineaController {
     private Button enviar_aerolinea_aeropuerto;
 
     @FXML
-    private TextField contrasenaAerolineaCreacion;
+    private TextField modificarCodigoAerolinea;
+
+    @FXML
+    private TextField modificarPassAerolinea;
+
+
 
     public void crearAereolinea(ActionEvent actionEvent) {
     }

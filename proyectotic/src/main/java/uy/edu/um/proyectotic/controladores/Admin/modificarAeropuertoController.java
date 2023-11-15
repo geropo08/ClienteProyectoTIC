@@ -4,11 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.stereotype.Controller;
-
-import java.awt.*;
+import javafx.scene.control.*;
 
 @Controller
-@FxmlView("modificarAerolinea.fxml")
+@FxmlView("modificarAeropuerto.fxml")
 public class modificarAeropuertoController {
     @FXML
     private TextField contrasenaAeropuerto;
