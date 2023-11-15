@@ -10,14 +10,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import uy.edu.um.AerolineasDTO;
+
 import uy.edu.um.AeropuertoTransporte;
 
 import uy.edu.um.AeropuertosDTO;
 import uy.edu.um.AsociacionTransporte;
 import uy.edu.um.PuertasPistasTransporte;
 
-import java.util.List;
+
 
 
 @Component
