@@ -1,7 +1,7 @@
 package uy.edu.um.proyectotic.servicios;
 
 
-
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;
@@ -12,6 +12,7 @@ import uy.edu.um.AeropuertoTransporte;
 
 import uy.edu.um.AeropuertosDTO;
 import uy.edu.um.AsociacionTransporte;
+import uy.edu.um.PuertasPistasTransporte;
 
 
 @Component
@@ -47,6 +48,11 @@ public class AeropuertoRestService {
         AsociacionTransporte aTransporte=new AsociacionTransporte(aerolinea,aeropuerto);
         return restTemplate.postForEntity("http://localhost:8080/asociarAerolineasAeropuertos", aTransporte, AsociacionTransporte.class);
 
+    }
+
+    public ResponseEntity<PuertasPistasTransporte> crearPuertas(String aerolinea, List<String> listaPuertas){
+        PuertasPistasTransporte pTransporte=new PuertasPistasTransporte(aerolinea,listaPuertas);
+        return restTemplate.postForEntity("http://localhost:8080/crearPuertas", pTransporte, PuertasPistasTransporte.class);
     }
 
 

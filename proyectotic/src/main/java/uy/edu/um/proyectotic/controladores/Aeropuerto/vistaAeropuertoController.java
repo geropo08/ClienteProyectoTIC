@@ -29,6 +29,13 @@ public class vistaAeropuertoController {
 
     public void buscarAerolinea(ActionEvent actionEvent) {
     }
+    public void crearPuerta(ActionEvent actionEvent){
+        conf.cambiarPantalla(BotonCerrarSesionAerolinea.getScene(), crearPuertaController.class,applicationContext);
+    }
+    public void crearPista(ActionEvent actionEvent){
+
+    }
+
 
     public void informesAerolineas(ActionEvent actionEvent) {
     }
@@ -43,6 +50,7 @@ public class vistaAeropuertoController {
     }
 
     public void crearTiendas(ActionEvent actionEvent) {
+        
     }
 
     public void buscarTiendas(ActionEvent actionEvent) {
