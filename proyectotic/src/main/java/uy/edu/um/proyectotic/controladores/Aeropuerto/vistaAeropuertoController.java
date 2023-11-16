@@ -33,6 +33,7 @@ public class vistaAeropuertoController {
         conf.cambiarPantalla(BotonCerrarSesionAerolinea.getScene(), crearPuertaController.class,applicationContext);
     }
     public void crearPista(ActionEvent actionEvent){
+        conf.cambiarPantalla(BotonCerrarSesionAerolinea.getScene(), crearPistaController.class,applicationContext);
 
     }
 
