@@ -39,5 +39,9 @@ public class AerolineaRestService {
     public ResponseEntity<List<AerolineasDTO>> getAerolineas(){
         return restTemplate.exchange("http://localhost:8080/getAerolineas",  HttpMethod.GET, null, new ParameterizedTypeReference<List<AerolineasDTO>>(){});
     }
-    
+
+    public ResponseEntity<List<String>> getAerolineasAeropuerto(String empresa) {
+        return restTemplate.exchange("http://localhost:8080/getAerolineasAeropuerto/"+empresa,  HttpMethod.GET, null, new ParameterizedTypeReference<List<String>>(){});
+
+    }
 }

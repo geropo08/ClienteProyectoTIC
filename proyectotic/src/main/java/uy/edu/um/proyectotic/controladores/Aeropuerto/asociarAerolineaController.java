@@ -58,7 +58,7 @@ public class asociarAerolineaController {
 
     @FXML
     void atras(ActionEvent event) {
-        configuraciones.cambiarPantalla(botonAtrasAsociarAerolinea.getScene(), vistaAerolineaController.class,applicationContext);
+        configuraciones.cambiarPantalla(botonAtrasAsociarAerolinea.getScene(), vistaAeropuertoController.class,applicationContext);
     }
     
     private void showAlert(String title, String contextText) {
