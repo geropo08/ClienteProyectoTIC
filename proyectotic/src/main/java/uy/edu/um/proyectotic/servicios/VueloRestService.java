@@ -1,12 +1,16 @@
 package uy.edu.um.proyectotic.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import java.time.LocalDate;
+import java.util.List;
 
 
+import uy.edu.um.AvionesDTO;
 import uy.edu.um.VuelosDTO;
 
 @Component
@@ -27,5 +31,10 @@ public class VueloRestService {
         vuelo.setMatricula(matricula);
 
         return restTemplate.postForEntity("http://localhost:8080/crearVuelo", vuelo, VuelosDTO.class);
+    }
+
+    public ResponseEntity<List<VuelosDTO>> getVuelos(String empresa) {
+        System.out.println("qweqweqweqweqweqweqweqweqweqweqweqweqweqweqweqwe");
+        return restTemplate.exchange("http://localhost:8080/getVuelos/"+empresa,  HttpMethod.GET, null, new ParameterizedTypeReference<List<VuelosDTO>>(){});
     }
 }

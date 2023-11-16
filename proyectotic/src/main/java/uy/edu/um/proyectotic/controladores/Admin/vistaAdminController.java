@@ -16,7 +16,6 @@ public class vistaAdminController {
 
     @Autowired
     ConfigurableApplicationContext applicationContext;
-
     @Autowired
     Configuraciones conf;
 

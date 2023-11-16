@@ -28,6 +28,7 @@ public class vistaAerolineaController {
     }
     @FXML
     public void buscarAvion(ActionEvent actionEvent) {
+        conf.cambiarPantalla(botonCerrarSesionAerolinea.getScene(), listaAvionesAerolineaController.class,applicationContext);
     }
     @FXML
     public void crearVuelo(ActionEvent actionEvent) {

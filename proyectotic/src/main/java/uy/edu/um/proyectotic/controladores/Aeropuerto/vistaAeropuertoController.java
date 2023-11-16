@@ -34,6 +34,7 @@ public class vistaAeropuertoController {
     }
 
     public void aceptarVuelos(ActionEvent actionEvent) {
+        conf.cambiarPantalla(BotonCerrarSesionAerolinea.getScene(), confirmarVueloAerolineaController.class,applicationContext);
     }
 
     public void buscarVuelos(ActionEvent actionEvent) {
