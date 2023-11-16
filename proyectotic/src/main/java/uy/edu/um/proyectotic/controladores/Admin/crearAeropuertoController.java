@@ -65,9 +65,7 @@ public class crearAeropuertoController {
 
         try{
             aeropuertoResponse=aeropuertoRestService.crearAeropuerto(emailCrearAeropuerto.getText(), contrasenaAeropuerto.getText(), paisCrearAeropuerto.getText(), codigoIataAeropuerto.getText(), nombreCearAeropuerto.getText(), cantidadPuertasAeropuerto.getText(), cantidadMangasAeropuerto.getText(), cantidadPuestosCheckInAeropuerto.getText());
-            if(aeropuertoResponse.getStatusCode()==HttpStatus.OK){
-                showAlert("Exito en la creacion!", "Se ha creado el aeropuerto "+nombreCearAeropuerto.getText()+" y el usuario "+emailCrearAeropuerto.getText());
-            }
+            showAlert("Exito en la creacion!", "Se ha creado el aeropuerto "+nombreCearAeropuerto.getText()+" y el usuario "+emailCrearAeropuerto.getText());
         } catch (Exception e){
             
             showAlert("Datos Invalidos", "Error al crear aeropuerto");
