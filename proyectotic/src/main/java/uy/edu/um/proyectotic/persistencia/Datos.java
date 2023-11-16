@@ -7,9 +7,6 @@ public class Datos {
 
     private VuelosDTO Vuelo;
 
-
-
-
     public static Datos getInstace() {
         if(instance == null) {
             instance = new Datos();

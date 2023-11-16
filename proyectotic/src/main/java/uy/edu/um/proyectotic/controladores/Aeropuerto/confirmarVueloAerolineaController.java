@@ -4,10 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import uy.edu.um.VuelosDTO;
 import uy.edu.um.proyectotic.persistencia.Configuraciones;
+import uy.edu.um.proyectotic.persistencia.Datos;
 import uy.edu.um.proyectotic.persistencia.UserSession;
 import uy.edu.um.proyectotic.servicios.VueloRestService;
 
@@ -94,18 +92,32 @@ public class confirmarVueloAerolineaController {
         Object source = actionEvent.getSource();
         if (source == botonConfirmarVuelo) {
             if (!TablaConfirmarVuelo.getSelectionModel().isEmpty()) {
-                VuelosDTO codigoVuelo = TablaConfirmarVuelo.getSelectionModel().getSelectedItems().get(0);
-                System.out.println(codigoVuelo);
+                VuelosDTO vueloDTO = TablaConfirmarVuelo.getSelectionModel().getSelectedItems().get(0);
+                Datos vuelo = Datos.getInstace();
+                vuelo.setVuelo(vueloDTO);
+                configuraciones.cambiarPantalla(botonAtrasConfirmarVuelo.getScene(), AsociarPistasPuertasController.class,applicationContext);
             } else {
-                // error
+                showAlert("Error", "Debe seleccionar un vuelo");
             }
         } else if (source == botonNegarVuelo) {
             if (!TablaConfirmarVuelo.getSelectionModel().isEmpty()) {
-
+                showAlert("Eliminado", "El vuelo ha sido eliminado");
             } else {
-                // error
+                showAlert("Error", "Debe seleccionar un vuelo");
             }
         }
+    }
+
+    private void showAlert(String title, String contextText) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(contextText);
+        alert.showAndWait();
+    }
+
+    private Boolean eliminarVueloAux(String codigoVuelo) {
+        return true;
     }
 }
 
