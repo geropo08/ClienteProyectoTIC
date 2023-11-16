@@ -4,11 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import net.rgielen.fxweaver.core.FxmlView;
+import uy.edu.um.proyectotic.controladores.loginController;
 import uy.edu.um.proyectotic.persistencia.Configuraciones;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
+import uy.edu.um.proyectotic.persistencia.UserSession;
 
 @Controller
 @FxmlView("vistaAeropuerto.fxml")
@@ -71,5 +73,11 @@ public class vistaAeropuertoController {
     }
 
     public void informesAeropuerto(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void cerrarSesion(ActionEvent actionEvent) {
+        UserSession.leaveInstance();
+        conf.cambiarPantalla(BotonCerrarSesionAerolinea.getScene(), loginController.class,applicationContext);
     }
 }

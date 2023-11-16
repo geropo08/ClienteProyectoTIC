@@ -7,7 +7,9 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
+import uy.edu.um.proyectotic.controladores.loginController;
 import uy.edu.um.proyectotic.persistencia.Configuraciones;
+import uy.edu.um.proyectotic.persistencia.UserSession;
 
 @Controller
 @FxmlView("vistaAdmin.fxml")
@@ -52,6 +54,8 @@ public class vistaAdminController {
     }
     @FXML
     public void cerrarSesion(ActionEvent actionEvent) {
+        UserSession.leaveInstance();
+        conf.cambiarPantalla(botonCerrarSesionAdmin.getScene(), loginController.class,applicationContext);
     }
 
 
