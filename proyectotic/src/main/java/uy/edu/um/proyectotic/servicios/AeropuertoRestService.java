@@ -58,6 +58,10 @@ public class AeropuertoRestService {
         PuertasPistasTransporte pTransporte=new PuertasPistasTransporte(aerolinea,listaPuertas);
         return restTemplate.postForEntity("http://localhost:8080/crearPuertas", pTransporte, PuertasPistasTransporte.class);
     }
+    public ResponseEntity<PuertasPistasTransporte> crearPistas(String aerolinea, List<String> listaPistas){
+        PuertasPistasTransporte pTransporte=new PuertasPistasTransporte(aerolinea,listaPistas);
+        return restTemplate.postForEntity("http://localhost:8080/crearPistas", pTransporte, PuertasPistasTransporte.class);
+    }
 
     public ResponseEntity<List<AeropuertosDTO>> getAeropuertos(){
         return restTemplate.exchange("http://localhost:8080/getAeropuertos", HttpMethod.GET, null, new ParameterizedTypeReference<List<AeropuertosDTO>>() {});
