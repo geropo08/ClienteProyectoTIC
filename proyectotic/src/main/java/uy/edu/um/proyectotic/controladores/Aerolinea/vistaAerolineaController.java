@@ -38,6 +38,7 @@ public class vistaAerolineaController {
     }
     @FXML
     public void buscarVuelo(ActionEvent actionEvent) {
+        conf.cambiarPantalla(botonCerrarSesionAerolinea.getScene(), listaVuelosAerolineasController.class,applicationContext);
     }
     @FXML
     public void informesVuelo(ActionEvent actionEvent) {
@@ -49,6 +50,7 @@ public class vistaAerolineaController {
     }
     @FXML
     public void buscarEmpleado(ActionEvent actionEvent) {
+        //conf.cambiarPantalla(botonCerrarSesionAerolinea.getScene(), crearEmpleadoController.class,applicationContext);
     }
     @FXML
     public void informesEmpleado(ActionEvent actionEvent) {

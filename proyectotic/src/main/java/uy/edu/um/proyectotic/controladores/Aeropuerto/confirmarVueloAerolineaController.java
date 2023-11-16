@@ -59,27 +59,20 @@ public class confirmarVueloAerolineaController {
 
     @FXML
     public void initialize() {
-        System.out.println("Cargando datos desde la base de datos");
         TablaConfirmarVuelo.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         UserSession usr=UserSession.getInstace();
-        System.out.println("asdasd");
 
         ResponseEntity<List<VuelosDTO>> vuelosGet= vueloService.getVuelos(usr.getEmpresa());
         List<VuelosDTO> vuelos = vuelosGet.getBody();
-        System.out.println(vuelos);
-        System.out.println("Asdasd");
 
         ObservableList<VuelosDTO> vuelosDTOObservableList = FXCollections.observableArrayList(vuelos);
         TablaConfirmarVuelo.setItems(vuelosDTOObservableList);
-        System.out.println("qweqwe");
 
         columnaAeropuertoLlegada.setCellValueFactory(new PropertyValueFactory("aeropuertoLlegada"));
         columnaCodigo.setCellValueFactory(new PropertyValueFactory("codigoVuelo"));
         columnaAerppuertoSalida.setCellValueFactory(new PropertyValueFactory("aeropuertoSalida"));
         columnaFechaLlegada.setCellValueFactory(new PropertyValueFactory("fechaLlegada"));
         columnaFechaSalida.setCellValueFactory(new PropertyValueFactory("fechaSalida"));
-
-        System.out.println("qwe");
     }
 
     @FXML

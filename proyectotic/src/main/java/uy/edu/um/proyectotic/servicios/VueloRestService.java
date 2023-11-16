@@ -34,7 +34,10 @@ public class VueloRestService {
     }
 
     public ResponseEntity<List<VuelosDTO>> getVuelos(String empresa) {
-        System.out.println("qweqweqweqweqweqweqweqweqweqweqweqweqweqweqweqwe");
         return restTemplate.exchange("http://localhost:8080/getVuelos/"+empresa,  HttpMethod.GET, null, new ParameterizedTypeReference<List<VuelosDTO>>(){});
+    }
+
+    public ResponseEntity<List<VuelosDTO>> getVuelosAerolinea(String empresa) {
+        return restTemplate.exchange("http://localhost:8080/getVuelosAerolinea/"+empresa,  HttpMethod.GET, null, new ParameterizedTypeReference<List<VuelosDTO>>(){});
     }
 }
