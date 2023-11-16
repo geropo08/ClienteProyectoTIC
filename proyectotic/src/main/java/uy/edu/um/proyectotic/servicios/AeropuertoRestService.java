@@ -2,6 +2,7 @@ package uy.edu.um.proyectotic.servicios;
 
 
 import java.util.List;
+import java.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.core.ParameterizedTypeReference;
@@ -15,6 +16,7 @@ import uy.edu.um.AeropuertoTransporte;
 
 import uy.edu.um.AeropuertosDTO;
 import uy.edu.um.AsociacionTransporte;
+import uy.edu.um.DisponibilidadPuertasT;
 import uy.edu.um.PuertasPistasTransporte;
 
 
@@ -61,6 +63,16 @@ public class AeropuertoRestService {
     public ResponseEntity<PuertasPistasTransporte> crearPistas(String aerolinea, List<String> listaPistas){
         PuertasPistasTransporte pTransporte=new PuertasPistasTransporte(aerolinea,listaPistas);
         return restTemplate.postForEntity("http://localhost:8080/crearPistas", pTransporte, PuertasPistasTransporte.class);
+    }
+    public ResponseEntity<List> disponibilidadPuertas(String aeropuerto, String hora, LocalDate fecha){
+        DisponibilidadPuertasT disponibilidadPuertas =  new DisponibilidadPuertasT(aeropuerto, hora, fecha);
+
+        return restTemplate.postForEntity("http://localhost:8080/puertasDisponibles", disponibilidadPuertas, List.class);
+    }
+    public ResponseEntity<List> disponibilidadPistas(String aeropuerto, String hora, LocalDate fecha){
+        DisponibilidadPuertasT disponibilidadPistas =  new DisponibilidadPuertasT(aeropuerto, hora, fecha);
+
+        return restTemplate.postForEntity("http://localhost:8080/pistasDisponibles", disponibilidadPistas, List.class);
     }
 
     public ResponseEntity<List<AeropuertosDTO>> getAeropuertos(){
