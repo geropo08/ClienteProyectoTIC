@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import net.rgielen.fxweaver.core.FxmlView;
+import uy.edu.um.proyectotic.controladores.crearEmpleadoController;
 import uy.edu.um.proyectotic.controladores.loginController;
 import uy.edu.um.proyectotic.persistencia.Configuraciones;
 
@@ -70,10 +71,13 @@ public class vistaAeropuertoController {
     //==================================================EMPLEADO=======================================================//
     @FXML
     public void crearEmpleado(ActionEvent actionEvent) {
+        conf.cambiarPantalla(BotonCerrarSesionAerolinea.getScene(), crearEmpleadoController.class,applicationContext);
+
     }
 
     @FXML
     public void buscarEmpleado(ActionEvent actionEvent) {
+
     }
 
     @FXML
