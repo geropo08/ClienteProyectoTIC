@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 
 import java.util.List;
 import java.time.LocalDate;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -65,6 +67,10 @@ public class AsociarPistasPuertasController {
 
 
     }
+    @FXML
+    void aceptar(ActionEvent event){
+        
+    }
     private void showAlert(String title, String contextText) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
@@ -72,6 +78,7 @@ public class AsociarPistasPuertasController {
         alert.setContentText(contextText);
         alert.showAndWait();
     }
+    
 
 
     
