@@ -40,6 +40,7 @@ public class vistaAeropuertoController {
 
     @FXML
     public void informesAerolineas(ActionEvent actionEvent) {
+        showAlert("Informes", "No hay informes disponibles");
     }
     //======================================================VUELO======================================================//
     @FXML
@@ -53,6 +54,7 @@ public class vistaAeropuertoController {
 
     @FXML
     public void informesVuelos(ActionEvent actionEvent) {
+        showAlert("Informes", "No hay informes disponibles");
     }
 
     //==================================================TIENDAS========================================================//
@@ -67,6 +69,7 @@ public class vistaAeropuertoController {
 
     @FXML
     public void informesTiendas(ActionEvent actionEvent) {
+        showAlert("Informes", "No hay informes disponibles");
     }
     //==================================================EMPLEADO=======================================================//
     @FXML
@@ -86,6 +89,7 @@ public class vistaAeropuertoController {
     //==================================================AEROPUERTO=====================================================//
     @FXML
     public void informesAeropuerto(ActionEvent actionEvent) {
+        showAlert("Informes", "No hay informes disponibles");
     }
     @FXML
     public void crearPuerta(ActionEvent actionEvent){
@@ -101,5 +105,14 @@ public class vistaAeropuertoController {
     public void cerrarSesion(ActionEvent actionEvent) {
         UserSession.leaveInstance();
         conf.cambiarPantalla(BotonCerrarSesionAerolinea.getScene(), loginController.class,applicationContext);
+    }
+
+
+    private void showAlert(String title, String contextText) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(contextText);
+        alert.showAndWait();
     }
 }

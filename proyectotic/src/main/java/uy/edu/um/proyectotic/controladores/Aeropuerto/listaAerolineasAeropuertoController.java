@@ -23,7 +23,7 @@ import uy.edu.um.proyectotic.servicios.AerolineaRestService;
 import java.util.List;
 
 @Controller
-@FxmlView("vistaAerolineasAeropuerto.fxml")
+@FxmlView("listaAerolineaAeropuertos.fxml")
 public class listaAerolineasAeropuertoController {
     @Autowired
     AerolineaRestService aerolineasService;
@@ -54,10 +54,10 @@ public class listaAerolineasAeropuertoController {
         tablaDatosAerolinea.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         UserSession usr=UserSession.getInstace();
 
-        ResponseEntity<List<String>> aerolineasGet= aerolineasService.getAerolineasAeropuerto(usr.getEmpresa());
-        List<String> aerolineas = aerolineasGet.getBody();
+        ResponseEntity<List<AerolineasDTO>> aerolineasGet= aerolineasService.getAerolineasAeropuerto(usr.getEmpresa());
+        List<AerolineasDTO> aerolineas = aerolineasGet.getBody();
 
-        ObservableList<AerolineasDTO> aerolineasObservableList = FXCollections.observableArrayList();
+        ObservableList<AerolineasDTO> aerolineasObservableList = FXCollections.observableArrayList(aerolineas);
         tablaDatosAerolinea.setItems(aerolineasObservableList);
 
         columnaNombreAerolinea.setCellValueFactory(new PropertyValueFactory("nombre"));
