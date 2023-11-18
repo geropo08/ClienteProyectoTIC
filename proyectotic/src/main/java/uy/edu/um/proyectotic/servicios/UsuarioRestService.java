@@ -1,12 +1,17 @@
 package uy.edu.um.proyectotic.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import uy.edu.um.AvionesDTO;
 import uy.edu.um.UsuarioTransporte;
 import uy.edu.um.UsuariosDTO;
+
+import java.util.List;
 
 @Component
 public class UsuarioRestService {
@@ -35,5 +40,8 @@ public class UsuarioRestService {
         UsuarioTransporte usuarioTransporte= new UsuarioTransporte(usr, licenciaPiloto);
         return restTemplate.postForEntity("http://localhost:8080/addUsuarios", usuarioTransporte, UsuarioTransporte.class);
     }
-    
+
+    public ResponseEntity<List<UsuariosDTO>> getEmpleados(String empresa) {
+        return restTemplate.exchange("http://localhost:8080/getEmpleados/"+empresa,  HttpMethod.GET, null, new ParameterizedTypeReference<List<UsuariosDTO>>(){});
+    }
 }
