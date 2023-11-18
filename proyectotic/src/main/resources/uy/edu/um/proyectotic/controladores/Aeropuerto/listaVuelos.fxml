@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="645.0" style="-fx-background-color: 00000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.proyectotic.controladores.Aeropuerto.buscarVueloAerolineaController">
+   <children>
+      <Button fx:id="botonAtraslistaVuelo" layoutX="58.0" layoutY="27.0" mnemonicParsing="false" onAction="#atras" text="←" />
+      <Text layoutX="304.0" layoutY="44.0" scaleX="3.0" scaleY="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vuelos" />
+      <TableView fx:id="TablaVuelos" layoutX="10.0" layoutY="74.0" prefHeight="220.0" prefWidth="629.0">
+         <columns>
+            <TableColumn fx:id="columnaCodigo" prefWidth="75.0" text="Codigo" />
+            <TableColumn fx:id="columnaFechaSalida" prefWidth="84.00005340576172" text="Salida" />
+            <TableColumn fx:id="columnaFechaLlegada" minWidth="0.0" prefWidth="100.0" text="Llegada" />
+            <TableColumn fx:id="columnaAerppuertoSalida" prefWidth="135.199951171875" text="Aeropuerto Salida" />
+            <TableColumn fx:id="columnaAeropuertoLlegada" prefWidth="150.40005493164062" text="Aeropuerto Llegada" />
+            <TableColumn fx:id="columnaEstadoVuelo" prefWidth="81.0" text="Estado" />
+         </columns>
+      </TableView>
+      <Button fx:id="botonModificarVuelo" layoutX="333.0" layoutY="304.0" mnemonicParsing="false" onAction="#modificarVuelo" text="Modificar" />
+      <Button fx:id="botonEliminarVuelo" layoutX="242.0" layoutY="304.0" mnemonicParsing="false" onAction="#eliminarVuelo" text="Eliminar" />
+   </children>
+</Pane>

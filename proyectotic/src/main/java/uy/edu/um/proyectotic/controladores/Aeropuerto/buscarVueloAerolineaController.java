@@ -13,16 +13,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import uy.edu.um.VuelosDTO;
 import uy.edu.um.proyectotic.persistencia.Configuraciones;
-import uy.edu.um.proyectotic.persistencia.Datos;
 import uy.edu.um.proyectotic.persistencia.UserSession;
 import uy.edu.um.proyectotic.servicios.VueloRestService;
 
 import java.util.List;
 
 @Controller
-@FxmlView ("confirmarVueloAerolinea.fxml")
-public class confirmarVueloAerolineaController {
-
+@FxmlView("listaVuelos.fxml")
+public class buscarVueloAerolineaController {
     @Autowired
     Configuraciones configuraciones;
     @Autowired
@@ -31,25 +29,28 @@ public class confirmarVueloAerolineaController {
     VueloRestService vueloService;
 
     @FXML
-    private TableView<VuelosDTO> TablaConfirmarVuelo;
-
-    @FXML
     private TableColumn<?, ?> columnaFechaSalida;
 
     @FXML
-    private Button botonAtrasConfirmarVuelo;
+    private Button botonAtraslistaVuelo;
 
     @FXML
-    private Button botonConfirmarVuelo;
+    private Button botonModificarVuelo;
 
     @FXML
     private TableColumn<?, ?> columnaFechaLlegada;
 
     @FXML
+    private Button botonEliminarVuelo;
+
+    @FXML
     private TableColumn<?, ?> columnaAerppuertoSalida;
 
     @FXML
-    private Button botonNegarVuelo;
+    private TableColumn<?, ?> columnaEstadoVuelo;
+
+    @FXML
+    private TableView<VuelosDTO> TablaVuelos;
 
     @FXML
     private TableColumn<?, ?> columnaCodigo;
@@ -58,48 +59,51 @@ public class confirmarVueloAerolineaController {
     private TableColumn<?, ?> columnaAeropuertoLlegada;
 
     @FXML
+    void atras(ActionEvent event) {
+        configuraciones.cambiarPantalla(botonAtraslistaVuelo.getScene(), vistaAeropuertoController.class,applicationContext);
+    }
+
+    @FXML
+    void modificarVuelo(ActionEvent event) {
+        if(TablaVuelos.getSelectionModel().getSelectedItem()==null){
+            showAlert("Datos Invalidos", "No se selecciono ningun Empleado");
+        }else{
+            //modiifcar
+        }
+    }
+
+    @FXML
+    void eliminarVuelo(ActionEvent event) {
+        if(TablaVuelos.getSelectionModel().getSelectedItem()==null){
+            showAlert("Datos Invalidos", "No se selecciono ningun Empleado");
+        }else{
+            Boolean eliminado = eliminarVuelooAux(TablaVuelos.getSelectionModel().getSelectedItem().getCodigoVuelo());
+            if(eliminado){
+                showAlert("Exito", "Se elimino el Empleado");
+            }else{
+                showAlert("Error", "Hubo un error al eliminar el Empleado");
+            }
+        }
+    }
+
+    @FXML
     public void initialize() {
-        TablaConfirmarVuelo.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        TablaVuelos.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         UserSession usr=UserSession.getInstace();
 
-        ResponseEntity<List<VuelosDTO>> vuelosGet= vueloService.getVuelos(usr.getEmpresa());
+        ResponseEntity<List<VuelosDTO>> vuelosGet= vueloService.getAllVuelosAeropuerto(usr.getEmpresa());
         List<VuelosDTO> vuelos = vuelosGet.getBody();
 
         ObservableList<VuelosDTO> vuelosDTOObservableList = FXCollections.observableArrayList(vuelos);
-        TablaConfirmarVuelo.setItems(vuelosDTOObservableList);
+        TablaVuelos.setItems(vuelosDTOObservableList);
 
         columnaAeropuertoLlegada.setCellValueFactory(new PropertyValueFactory("aeropuertoLlegada"));
         columnaCodigo.setCellValueFactory(new PropertyValueFactory("codigoVuelo"));
         columnaAerppuertoSalida.setCellValueFactory(new PropertyValueFactory("aeropuertoSalida"));
         columnaFechaLlegada.setCellValueFactory(new PropertyValueFactory("fechaLlegada"));
         columnaFechaSalida.setCellValueFactory(new PropertyValueFactory("fechaSalida"));
+        columnaEstadoVuelo.setCellValueFactory(new PropertyValueFactory("estadoVuelo"));
 
-    }
-
-    @FXML
-    public void atras(ActionEvent actionEvent) {
-        configuraciones.cambiarPantalla(botonAtrasConfirmarVuelo.getScene(), vistaAeropuertoController.class,applicationContext);
-    }
-
-    @FXML
-    public void confirmarVuelo(ActionEvent actionEvent) {
-        Object source = actionEvent.getSource();
-        if (source == botonConfirmarVuelo) {
-            if (!TablaConfirmarVuelo.getSelectionModel().isEmpty()) {
-                VuelosDTO vueloDTO = TablaConfirmarVuelo.getSelectionModel().getSelectedItems().get(0);
-                Datos vuelo = Datos.getInstace();
-                vuelo.setVuelo(vueloDTO);
-                configuraciones.cambiarPantalla(botonAtrasConfirmarVuelo.getScene(), AsociarPistasPuertasController.class,applicationContext);
-            } else {
-                showAlert("Error", "Debe seleccionar un vuelo");
-            }
-        } else if (source == botonNegarVuelo) {
-            if (!TablaConfirmarVuelo.getSelectionModel().isEmpty()) {
-                showAlert("Eliminado", "El vuelo ha sido eliminado");
-            } else {
-                showAlert("Error", "Debe seleccionar un vuelo");
-            }
-        }
     }
 
     private void showAlert(String title, String contextText) {
@@ -110,8 +114,8 @@ public class confirmarVueloAerolineaController {
         alert.showAndWait();
     }
 
-    private Boolean eliminarVueloAux(String codigoVuelo) {
+    private Boolean eliminarVuelooAux(String id){
         return true;
     }
-}
 
+}

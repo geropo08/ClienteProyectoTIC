@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+
+<Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="645.0" style="-fx-background-color: 00000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.proyectotic.controladores.Aeropuerto.listaEmpleadosAeropuertosController">
+   <children>
+      <Pane layoutX="152.0" layoutY="5.0" prefHeight="368.0" prefWidth="340.0" style="-fx-background-color: F9F6EE;">
+         <effect>
+            <DropShadow height="30.36" radius="13.51" spread="0.18" width="25.68">
+               <color>
+                  <Color opacity="0.693009078502655" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <Button fx:id="botonParaAtaras" layoutX="21.0" layoutY="25.0" mnemonicParsing="false" onAction="#atras" text="←" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="EliminarEmpleado" layoutX="97.0" layoutY="293.0" mnemonicParsing="false" onAction="#eliminarEmpleado" text="Eliminar" />
+            <Button fx:id="ModificarEmpleado" layoutX="191.0" layoutY="293.0" mnemonicParsing="false" onAction="#modificarEmpleado" text="Modificar" />
+         </children>
+      </Pane>
+      <TableView fx:id="tablaEmpleados" layoutX="158.0" layoutY="89.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="329.0">
+        <columns>
+          <TableColumn fx:id="columnaMail" prefWidth="75.0" text="Mail" />
+          <TableColumn fx:id="columnaNombre" prefWidth="74.0" text="Nombre" />
+            <TableColumn fx:id="columnaApellido" prefWidth="82.0" text="Apellido" />
+            <TableColumn fx:id="columnaRoll" prefWidth="97.0" text="Roll" />
+        </columns>
+      </TableView>
+      <Text layoutX="293.0" layoutY="50.0" scaleX="3.0" scaleY="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Empleados" />
+   </children>
+</Pane>
