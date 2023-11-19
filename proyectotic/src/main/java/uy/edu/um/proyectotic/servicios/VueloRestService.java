@@ -2,6 +2,7 @@ package uy.edu.um.proyectotic.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ import java.util.List;
 
 
 import uy.edu.um.AvionesDTO;
+import uy.edu.um.OrigenDestino;
 import uy.edu.um.VuelosDTO;
 
 @Component
@@ -46,5 +48,13 @@ public class VueloRestService {
     }
     public ResponseEntity<List<VuelosDTO>> getVuelosAerolineaAceptados(String empresa) {
         return restTemplate.exchange("http://localhost:8080/getVuelosAerolineaAceptados/"+empresa,  HttpMethod.GET, null, new ParameterizedTypeReference<List<VuelosDTO>>(){});
+    }
+    public ResponseEntity<List<VuelosDTO>> vuelosDisponibles(String origen, String destino){
+        OrigenDestino origenDestino=new OrigenDestino();
+        origenDestino.setDestino(destino);
+        origenDestino.setOrigen(origen);
+        HttpEntity<OrigenDestino> requestEntity = new HttpEntity<>(origenDestino);
+        return restTemplate.exchange("http://localhost:8080/vuelosDisponibles", HttpMethod.POST, requestEntity,  new ParameterizedTypeReference<List<VuelosDTO>>(){});
+
     }
 }

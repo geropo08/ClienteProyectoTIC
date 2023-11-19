@@ -13,10 +13,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import net.rgielen.fxweaver.core.FxmlView;
+import uy.edu.um.ClientesDTO;
 import uy.edu.um.UsuariosDTO;
 import uy.edu.um.proyectotic.controladores.Admin.vistaAdminController;
 import uy.edu.um.proyectotic.controladores.Aerolinea.vistaAerolineaController;
 import uy.edu.um.proyectotic.controladores.Aeropuerto.vistaAeropuertoController;
+import uy.edu.um.proyectotic.controladores.Cliente.vistaClienteController;
 import uy.edu.um.proyectotic.persistencia.Configuraciones;
 import uy.edu.um.proyectotic.persistencia.UserSession;
 import uy.edu.um.proyectotic.servicios.UsuarioRestService;
@@ -66,10 +68,14 @@ public class loginController {
                     conf.cambiarPantalla(button_inciarsesion.getScene(), vistaAeropuertoController.class,applicationContext);
                     break;
                 case 2:
+
                     conf.cambiarPantalla(button_inciarsesion.getScene(), vistaAerolineaController.class,applicationContext);
                     System.out.println("Aerolinea");
                     break;
                 case 3:
+                    ClientesDTO cliente=usuariosService.obtenerClienteEmail(usuario_login.getText()).getBody();
+                    usr.setPasaporte(cliente.getPasaporte());
+                    conf.cambiarPantalla(button_inciarsesion.getScene(), vistaClienteController.class,applicationContext);
                     System.out.println("Usuario");
                     break;
                 default:

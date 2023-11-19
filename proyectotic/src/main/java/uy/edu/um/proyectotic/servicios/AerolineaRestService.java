@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -11,7 +12,9 @@ import org.springframework.web.client.RestTemplate;
 
 import uy.edu.um.AerolineaTransporte;
 import uy.edu.um.AerolineasDTO;
+import uy.edu.um.OrigenDestino;
 import uy.edu.um.PasajerosVuelosT;
+import uy.edu.um.VuelosDTO;
 
 @Component
 public class AerolineaRestService {
@@ -49,6 +52,13 @@ public class AerolineaRestService {
     public ResponseEntity<PasajerosVuelosT> asignarVueloPasajero(String codigoVuelo, String pasaporte){
         PasajerosVuelosT pasajerosVuelosT=new PasajerosVuelosT(codigoVuelo,pasaporte);
         return restTemplate.postForEntity("http://localhost:8080/asignarVueloPasajero", pasajerosVuelosT, PasajerosVuelosT.class);
+
+    }
+
+    public ResponseEntity<List<VuelosDTO>> vuelosComprados(String pasaporte){
+    
+        HttpEntity<String> requestEntity = new HttpEntity<>(pasaporte);
+        return restTemplate.exchange("http://localhost:8080/vuelosComprados", HttpMethod.POST, requestEntity,  new ParameterizedTypeReference<List<VuelosDTO>>(){});
 
     }
 }

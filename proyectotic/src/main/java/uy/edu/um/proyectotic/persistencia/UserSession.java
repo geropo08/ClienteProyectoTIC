@@ -6,6 +6,7 @@ public class UserSession {
     private String userName;
     private int permiso;
     private String empresa;
+    private String pasaporte;
 
 
 
@@ -17,6 +18,9 @@ public class UserSession {
     }
     public static void leaveInstance() {
         instance=null;
+    }
+    public void setPasaporte(String pasaporte){
+        this.pasaporte=pasaporte;
     }
     
     public void setUsername(String userName){
@@ -31,6 +35,9 @@ public class UserSession {
         this.empresa=empresa;
     }
 
+    public String getPasaporte(){
+        return pasaporte;
+    }
     public String getUserName() {
         return userName;
     }
@@ -46,6 +53,7 @@ public class UserSession {
         userName = "";// or null
         permiso = -1;// or null
         empresa="";
+        pasaporte="";
     }
 
 

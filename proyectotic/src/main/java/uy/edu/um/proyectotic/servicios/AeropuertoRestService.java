@@ -88,5 +88,10 @@ public class AeropuertoRestService {
         AceptacionVuelosT denegarVuelosT=new AceptacionVuelosT(codigoVuelo, "", "", aeropuerto);
         return restTemplate.postForEntity("http://localhost:8080/denegarVuelos", denegarVuelosT, AceptacionVuelosT.class);
     }
+
+    public ResponseEntity<List<String>> paisesDisponibles(){
+            return restTemplate.exchange("http://localhost:8080/paisesDisponibles", HttpMethod.GET, null, new ParameterizedTypeReference<List<String>>() {});
+
+    }
     
 }

@@ -15,7 +15,7 @@
             <Button fx:id="botonAtrasAsociarPasajero" layoutX="23.0" layoutY="46.0" mnemonicParsing="false" onAction="#atras" text="←" />
             <Button fx:id="botonAsociarPasajero" layoutX="166.0" layoutY="294.0" mnemonicParsing="false" onAction="#asociarPasajero" text="Crear" />
             <TextField fx:id="pasaportePasajero" layoutX="114.0" layoutY="187.0" />
-            <Label layoutX="43.0" layoutY="190.0" text="Pasapote" />
+            <Label layoutX="43.0" layoutY="190.0" text="Pasaporte" />
          </children>
          <effect>
             <DropShadow radius="14.68" spread="0.15" width="39.72">

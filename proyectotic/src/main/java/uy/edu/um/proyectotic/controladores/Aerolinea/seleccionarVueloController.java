@@ -70,7 +70,7 @@ public class seleccionarVueloController {
     @FXML
     void seleccionarVuelo(ActionEvent event) {
         if(TablaVuelos.getSelectionModel().getSelectedItem()==null){
-            showAlert("Datos Invalidos", "No se selecciono ningun Empleado");
+            showAlert("Datos Invalidos", "No se selecciono ningun vuelo");
         }else{
             VuelosDTO vueloDTO = TablaVuelos.getSelectionModel().getSelectedItems().get(0);
             Datos vuelo = Datos.getInstace();

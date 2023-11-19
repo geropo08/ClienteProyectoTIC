@@ -65,4 +65,8 @@ public class UsuarioRestService {
     public ResponseEntity<List<UsuariosDTO>> getEmpleados(String empresa) {
         return restTemplate.exchange("http://localhost:8080/getEmpleados/"+empresa,  HttpMethod.GET, null, new ParameterizedTypeReference<List<UsuariosDTO>>(){});
     }
+
+    public ResponseEntity<ClientesDTO> obtenerClienteEmail(String email){
+        return restTemplate.postForEntity("http://localhost:8080/obtenerClienteEmail", email, ClientesDTO.class);
+    }
 }
