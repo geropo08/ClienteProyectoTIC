@@ -52,6 +52,7 @@
                <items>
                   <MenuItem mnemonicParsing="false" text="Crear vuelo" onAction="#crearVuelo"/>
                   <MenuItem mnemonicParsing="false" text="Buscar vuelo" onAction="#buscarVuelo"/>
+                  <MenuItem mnemonicParsing="false" text="Agregar Pasajero" onAction="#asociarPasajero"/>
                   <MenuItem mnemonicParsing="false" text="Informe" onAction="#informesVuelo"/>
                </items>
         </Menu>

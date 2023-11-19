@@ -1,9 +1,10 @@
-package uy.edu.um.proyectotic.controladores.Aeropuerto;
+package uy.edu.um.proyectotic.controladores.Aerolinea;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
@@ -15,7 +16,10 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import uy.edu.um.VuelosDTO;
+import uy.edu.um.proyectotic.controladores.Aeropuerto.AsociarPistasPuertasController;
+import uy.edu.um.proyectotic.controladores.Aeropuerto.vistaAeropuertoController;
 import uy.edu.um.proyectotic.persistencia.Configuraciones;
+import uy.edu.um.proyectotic.persistencia.Datos;
 import uy.edu.um.proyectotic.persistencia.UserSession;
 import uy.edu.um.proyectotic.servicios.VueloRestService;
 
@@ -66,9 +70,12 @@ public class seleccionarVueloController {
     @FXML
     void seleccionarVuelo(ActionEvent event) {
         if(TablaVuelos.getSelectionModel().getSelectedItem()==null){
-            //showAlert("Datos Invalidos", "No se selecciono ningun Empleado");
+            showAlert("Datos Invalidos", "No se selecciono ningun Empleado");
         }else{
-           // mandar a la otra pantalla
+            VuelosDTO vueloDTO = TablaVuelos.getSelectionModel().getSelectedItems().get(0);
+            Datos vuelo = Datos.getInstace();
+            vuelo.setVuelo(vueloDTO);
+            configuraciones.cambiarPantalla(botonAtrasSeleccionaraVuelo.getScene(), asociarPasajeroVueloController.class,applicationContext);
         }
 
     }
@@ -77,7 +84,7 @@ public class seleccionarVueloController {
         TablaVuelos.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         UserSession usr=UserSession.getInstace();
 
-        ResponseEntity<List<VuelosDTO>> vuelosGet= vueloService.getAllVuelosAeropuerto(usr.getEmpresa());
+        ResponseEntity<List<VuelosDTO>> vuelosGet= vueloService.getVuelosAerolineaAceptados(usr.getEmpresa());
         List<VuelosDTO> vuelos = vuelosGet.getBody();
 
         ObservableList<VuelosDTO> vuelosDTOObservableList = FXCollections.observableArrayList(vuelos);
@@ -92,13 +99,13 @@ public class seleccionarVueloController {
 
     }
 
-    /*private void showAlert(String title, String contextText) {
+    private void showAlert(String title, String contextText) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(contextText);
         alert.showAndWait();
-    }*/
+    }
 
 
 }

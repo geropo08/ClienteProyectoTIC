@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 import uy.edu.um.AerolineaTransporte;
 import uy.edu.um.AerolineasDTO;
+import uy.edu.um.PasajerosVuelosT;
 
 @Component
 public class AerolineaRestService {
@@ -42,6 +43,12 @@ public class AerolineaRestService {
 
     public ResponseEntity<List<AerolineasDTO>> getAerolineasAeropuerto(String empresa) {
         return restTemplate.exchange("http://localhost:8080/getAerolineasAeropuerto/"+empresa,  HttpMethod.GET, null, new ParameterizedTypeReference<List<AerolineasDTO>>(){});
+
+    }
+
+    public ResponseEntity<PasajerosVuelosT> asignarVueloPasajero(String codigoVuelo, String pasaporte){
+        PasajerosVuelosT pasajerosVuelosT=new PasajerosVuelosT(codigoVuelo,pasaporte);
+        return restTemplate.postForEntity("http://localhost:8080/asignarVueloPasajero", pasajerosVuelosT, PasajerosVuelosT.class);
 
     }
 }

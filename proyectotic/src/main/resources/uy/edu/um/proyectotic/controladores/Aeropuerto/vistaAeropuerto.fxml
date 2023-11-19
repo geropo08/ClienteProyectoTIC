@@ -53,7 +53,6 @@
                <items>
                   <MenuItem fx:id="AceptarVuelo" mnemonicParsing="false" text="Aceptar vuelos" onAction="#aceptarVuelos"/>
                   <MenuItem mnemonicParsing="false" text="Buscar vuelo" onAction="#buscarVuelos"/>
-                  <MenuItem mnemonicParsing="false" text="Asociar cliente" onAction="#asociarCliente"/>
                   <MenuItem mnemonicParsing="false" text="Informes" onAction="#informesVuelos"/>
                </items>
         </Menu>

@@ -42,6 +42,10 @@ public class vistaAerolineaController {
         conf.cambiarPantalla(botonCerrarSesionAerolinea.getScene(), listaVuelosAerolineasController.class,applicationContext);
     }
     @FXML
+    public void asociarPasajero(ActionEvent actionEvent) {
+        conf.cambiarPantalla(botonCerrarSesionAerolinea.getScene(), seleccionarVueloController.class,applicationContext);
+    }
+    @FXML
     public void informesVuelo(ActionEvent actionEvent) {
         showAlert("Informes", "No hay informes disponibles");
     }
