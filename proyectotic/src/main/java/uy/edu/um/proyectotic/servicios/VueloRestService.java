@@ -23,8 +23,8 @@ public class VueloRestService {
         vuelo.setCodigoVuelo(idVuelo);
         vuelo.setAeropuertoSalida(iataSalida);
         vuelo.setAeropuertoLlegada(iataLlegada);
-        vuelo.setFechaLlegada(fechaSalida);;
-        vuelo.setHoraLlegada(horaSalida);
+        vuelo.setFechaLlegada(fechaLlegada);;
+        vuelo.setHoraLlegada(horaLlegada);
         vuelo.setFechaSalida(fechaSalida);
         vuelo.setHoraSalida(horaSalida);
         vuelo.setAerolinea(aerolinea);

@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 
@@ -67,6 +68,7 @@ public class AsociarPistasPuertasController {
         comboBoxPuertaAsignada.getItems().setAll(listaPuerta.getBody());
         comboBoxPistaAsignada.getItems().removeAll(comboBoxPistaAsignada.getItems());
         comboBoxPistaAsignada.getItems().setAll(listaPistas.getBody());
+        
 
 
     }
@@ -75,17 +77,24 @@ public class AsociarPistasPuertasController {
         ResponseEntity<AceptacionVuelosT> aceptacionVuelosResponseEntity=null;
         UserSession usr=UserSession.getInstace();
         Datos data=Datos.getInstace();
-        try{
-            aceptacionVuelosResponseEntity=aeropuertoRestService.aceptarVuelo(data.getVuelo().getCodigoVuelo(), usr.getEmpresa(), comboBoxPuertaAsignada.getValue(), comboBoxPistaAsignada.getValue());
-            if(aceptacionVuelosResponseEntity.getStatusCode()==HttpStatus.OK){
-                showAlert("Exito en la aceptacion!", "Se ha aceptado el vuelo.");
-                Datos.leaveInstance();
-                configuraciones.cambiarPantalla(botonAsignarPuertas.getScene(), confirmarVueloAerolineaController.class,applicationContext);
-            }
-        } catch (Exception e){
+        if(comboBoxPuertaAsignada.getValue()==null || comboBoxPistaAsignada.getValue()==null){
+            showAlert("Error", "No hay puertas/pistas disponibles para asignar");
+            Datos.leaveInstance();
+            configuraciones.cambiarPantalla(botonAsignarPuertas.getScene(), confirmarVueloAerolineaController.class,applicationContext);
+        } else {
+            try{
+                aceptacionVuelosResponseEntity=aeropuertoRestService.aceptarVuelo(data.getVuelo().getCodigoVuelo(), usr.getEmpresa(), comboBoxPuertaAsignada.getValue(), comboBoxPistaAsignada.getValue());
+                if(aceptacionVuelosResponseEntity.getStatusCode()==HttpStatus.OK){
+                    showAlert("Exito en la aceptacion!", "Se ha aceptado el vuelo.");
+                    Datos.leaveInstance();
+                    configuraciones.cambiarPantalla(botonAsignarPuertas.getScene(), confirmarVueloAerolineaController.class,applicationContext);
+                }
+            } catch (Exception e){
             
-            showAlert("Datos Invalidos", "Error a crear el vuelo.");
+                showAlert("Datos Invalidos", "Error a crear el vuelo.");
+            }   
         }
+        
         
     }
     private void showAlert(String title, String contextText) {
