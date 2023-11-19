@@ -40,6 +40,7 @@ public class vistaAeropuertoController {
 
     @FXML
     public void informesAerolineas(ActionEvent actionEvent) {
+        showAlert("Informes", "No hay informes disponibles");
     }
     //======================================================VUELO======================================================//
     @FXML
@@ -49,10 +50,17 @@ public class vistaAeropuertoController {
 
     @FXML
     public void buscarVuelos(ActionEvent actionEvent) {
+        conf.cambiarPantalla(BotonCerrarSesionAerolinea.getScene(), buscarVueloAerolineaController.class,applicationContext);
+    }
+
+    @FXML
+    public void asociarCliente(ActionEvent actionEvent) {
+        conf.cambiarPantalla(BotonCerrarSesionAerolinea.getScene(), seleccionarVueloController.class,applicationContext);
     }
 
     @FXML
     public void informesVuelos(ActionEvent actionEvent) {
+        showAlert("Informes", "No hay informes disponibles");
     }
 
     //==================================================TIENDAS========================================================//
@@ -67,6 +75,7 @@ public class vistaAeropuertoController {
 
     @FXML
     public void informesTiendas(ActionEvent actionEvent) {
+        showAlert("Informes", "No hay informes disponibles");
     }
     //==================================================EMPLEADO=======================================================//
     @FXML
@@ -77,7 +86,7 @@ public class vistaAeropuertoController {
 
     @FXML
     public void buscarEmpleado(ActionEvent actionEvent) {
-
+        conf.cambiarPantalla(BotonCerrarSesionAerolinea.getScene(), listaEmpleadosAeropuertosController.class,applicationContext);
     }
 
     @FXML
@@ -86,6 +95,7 @@ public class vistaAeropuertoController {
     //==================================================AEROPUERTO=====================================================//
     @FXML
     public void informesAeropuerto(ActionEvent actionEvent) {
+        showAlert("Informes", "No hay informes disponibles");
     }
     @FXML
     public void crearPuerta(ActionEvent actionEvent){
@@ -101,5 +111,14 @@ public class vistaAeropuertoController {
     public void cerrarSesion(ActionEvent actionEvent) {
         UserSession.leaveInstance();
         conf.cambiarPantalla(BotonCerrarSesionAerolinea.getScene(), loginController.class,applicationContext);
+    }
+
+
+    private void showAlert(String title, String contextText) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(contextText);
+        alert.showAndWait();
     }
 }

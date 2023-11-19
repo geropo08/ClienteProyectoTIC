@@ -2,6 +2,7 @@ package uy.edu.um.proyectotic.controladores.Aerolinea;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import net.rgielen.fxweaver.core.FxmlView;
 import uy.edu.um.proyectotic.controladores.crearEmpleadoController;
@@ -42,6 +43,7 @@ public class vistaAerolineaController {
     }
     @FXML
     public void informesVuelo(ActionEvent actionEvent) {
+        showAlert("Informes", "No hay informes disponibles");
     }
     @FXML
     public void crearEmpleado(ActionEvent actionEvent) {
@@ -50,15 +52,25 @@ public class vistaAerolineaController {
     }
     @FXML
     public void buscarEmpleado(ActionEvent actionEvent) {
-        //conf.cambiarPantalla(botonCerrarSesionAerolinea.getScene(), crearEmpleadoController.class,applicationContext);
+        conf.cambiarPantalla(botonCerrarSesionAerolinea.getScene(), listaEmpleadosController.class,applicationContext);
     }
     @FXML
     public void informesEmpleado(ActionEvent actionEvent) {
+        showAlert("Informes", "No hay informes disponibles");
     }
 
     @FXML
     public void cerrarSesion(ActionEvent actionEvent) {
         UserSession.leaveInstance();
         conf.cambiarPantalla(botonCerrarSesionAerolinea.getScene(), loginController.class,applicationContext);
+    }
+
+
+    private void showAlert(String title, String contextText) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(contextText);
+        alert.showAndWait();
     }
 }

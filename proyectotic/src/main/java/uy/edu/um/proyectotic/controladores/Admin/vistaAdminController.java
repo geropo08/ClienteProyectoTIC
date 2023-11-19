@@ -34,7 +34,7 @@ public class vistaAdminController {
     }
     @FXML
     public void informesAerolinea(ActionEvent actionEvent) {
-        showAlert("No funciona", "No funciona");
+        showAlert("Informes", "No hay informes disponibles");
         //conf.cambiarPantalla(botonCerrarSesionAdmin.getScene(), informesAerolineaController.class,applicationContext);
     }
 
@@ -49,7 +49,7 @@ public class vistaAdminController {
     }
     @FXML
     public void informesAeropuerto(ActionEvent actionEvent) {
-        showAlert("No funciona", "No funciona");
+        showAlert("Informes", "No hay informes disponibles");
         //conf.cambiarPantalla(botonCerrarSesionAdmin.getScene(), informesAeropuertoController.class,applicationContext);
     }
     @FXML
@@ -57,8 +57,6 @@ public class vistaAdminController {
         UserSession.leaveInstance();
         conf.cambiarPantalla(botonCerrarSesionAdmin.getScene(), loginController.class,applicationContext);
     }
-
-
     private void showAlert(String title, String contextText) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);

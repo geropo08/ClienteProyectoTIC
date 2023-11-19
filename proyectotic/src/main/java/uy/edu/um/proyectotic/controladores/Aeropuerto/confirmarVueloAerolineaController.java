@@ -79,6 +79,7 @@ public class confirmarVueloAerolineaController {
         columnaAerppuertoSalida.setCellValueFactory(new PropertyValueFactory("aeropuertoSalida"));
         columnaFechaLlegada.setCellValueFactory(new PropertyValueFactory("fechaLlegada"));
         columnaFechaSalida.setCellValueFactory(new PropertyValueFactory("fechaSalida"));
+
     }
 
     @FXML
