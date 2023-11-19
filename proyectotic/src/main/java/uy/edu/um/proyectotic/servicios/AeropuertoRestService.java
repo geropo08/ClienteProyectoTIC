@@ -11,13 +11,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-
+import uy.edu.um.AceptacionVuelosT;
 import uy.edu.um.AeropuertoTransporte;
 
 import uy.edu.um.AeropuertosDTO;
 import uy.edu.um.AsociacionTransporte;
 import uy.edu.um.DisponibilidadPuertasT;
 import uy.edu.um.PuertasPistasTransporte;
+import uy.edu.um.proyectotic.controladores.Aeropuerto.asociarAerolineaController;
 
 
 
@@ -77,6 +78,15 @@ public class AeropuertoRestService {
 
     public ResponseEntity<List<AeropuertosDTO>> getAeropuertos(){
         return restTemplate.exchange("http://localhost:8080/getAeropuertos", HttpMethod.GET, null, new ParameterizedTypeReference<List<AeropuertosDTO>>() {});
+    }
+
+    public ResponseEntity<AceptacionVuelosT> aceptarVuelo(String codigoVuelo, String aeropuerto, String puerta, String pista){
+        AceptacionVuelosT aceptacionVuelosT=new AceptacionVuelosT(codigoVuelo, puerta, pista, aeropuerto);
+        return restTemplate.postForEntity("http://localhost:8080/aceptarVuelos", aceptacionVuelosT, AceptacionVuelosT.class);
+    }
+    public ResponseEntity<AceptacionVuelosT> denegarVuelo(String codigoVuelo, String aeropuerto){
+        AceptacionVuelosT denegarVuelosT=new AceptacionVuelosT(codigoVuelo, "", "", aeropuerto);
+        return restTemplate.postForEntity("http://localhost:8080/denegarVuelos", denegarVuelosT, AceptacionVuelosT.class);
     }
     
 }

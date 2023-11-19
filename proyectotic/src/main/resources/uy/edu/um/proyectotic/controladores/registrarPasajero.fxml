@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="645.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.proyectotic.controladores.registroClienteController">
+   <children>
+      <Pane layoutX="131.0" layoutY="10.0" prefHeight="359.0" prefWidth="383.0" style="-fx-background-color: F9F6EE;">
+         <children>
+            <Label layoutX="154.0" layoutY="50.0" scaleX="3.0" scaleY="3.0" text="Registro Pasajero" />
+            <Button fx:id="botonAtrasCrearCliente" layoutX="23.0" layoutY="46.0" mnemonicParsing="false" onAction="#atras" text="←" />
+            <Button fx:id="botonCrearCliente" layoutX="169.0" layoutY="307.0" mnemonicParsing="false" onAction="#crear" text="Crear" />
+            <Label layoutX="56.0" layoutY="193.0" text="Fecha de" />
+            <Label layoutX="51.0" layoutY="263.0" text="Contraseña" />
+            <TextField fx:id="emailCrearCliente" layoutX="130.0" layoutY="226.0" />
+            <TextField fx:id="contrasenaCrearCliente" layoutX="130.0" layoutY="259.0" />
+            <Label layoutX="51.0" layoutY="203.0" text="nacimiento" />
+            <DatePicker fx:id="fechaNacimientoCrearCliente" layoutX="130.0" layoutY="192.0" />
+            <Label layoutX="56.0" layoutY="126.0" text="Nombre" />
+            <Label layoutX="55.0" layoutY="89.0" text="Pasaporte" />
+         </children>
+         <effect>
+            <DropShadow radius="14.68" spread="0.15" width="39.72">
+               <color>
+                  <Color opacity="0.6572948098182678" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
+      <Label layoutX="186.0" layoutY="171.0" text="Apellido" />
+      <Label layoutX="192.0" layoutY="241.0" text="Email" />
+      <TextField fx:id="pasaporteCrearCliente" layoutX="261.0" layoutY="99.0" />
+      <TextField fx:id="nombreCrearCliente" layoutX="261.0" layoutY="134.0" />
+      <TextField fx:id="apellidoCrearCliente" layoutX="261.0" layoutY="168.0" />
+   </children>
+</Pane>

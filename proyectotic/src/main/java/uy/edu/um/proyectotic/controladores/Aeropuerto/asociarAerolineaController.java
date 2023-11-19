@@ -47,6 +47,8 @@ public class asociarAerolineaController {
             asociacionResponseEntity=aeropuertoRestService.asociarAerolinea(iataAerolinea.getText(), usr.getEmpresa());
             if(asociacionResponseEntity.getStatusCode()==HttpStatus.OK){
                 showAlert("Exito en la creacion!", "Se ha asociado la aerolinea "+iataAerolinea.getText());
+                
+
             }
         } catch (Exception e){
             

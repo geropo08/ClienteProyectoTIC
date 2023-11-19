@@ -2,6 +2,7 @@ package uy.edu.um.proyectotic.controladores.Aeropuerto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
@@ -15,6 +16,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import net.rgielen.fxweaver.core.FxmlView;
+import uy.edu.um.AceptacionVuelosT;
+import uy.edu.um.AerolineaTransporte;
 import uy.edu.um.proyectotic.persistencia.Configuraciones;
 import uy.edu.um.proyectotic.persistencia.Datos;
 import uy.edu.um.proyectotic.persistencia.UserSession;
@@ -69,6 +72,20 @@ public class AsociarPistasPuertasController {
     }
     @FXML
     void aceptar(ActionEvent event){
+        ResponseEntity<AceptacionVuelosT> aceptacionVuelosResponseEntity=null;
+        UserSession usr=UserSession.getInstace();
+        Datos data=Datos.getInstace();
+        try{
+            aceptacionVuelosResponseEntity=aeropuertoRestService.aceptarVuelo(data.getVuelo().getCodigoVuelo(), usr.getEmpresa(), comboBoxPuertaAsignada.getValue(), comboBoxPistaAsignada.getValue());
+            if(aceptacionVuelosResponseEntity.getStatusCode()==HttpStatus.OK){
+                showAlert("Exito en la aceptacion!", "Se ha aceptado el vuelo.");
+                Datos.leaveInstance();
+                configuraciones.cambiarPantalla(botonAsignarPuertas.getScene(), confirmarVueloAerolineaController.class,applicationContext);
+            }
+        } catch (Exception e){
+            
+            showAlert("Datos Invalidos", "Error a crear el vuelo.");
+        }
         
     }
     private void showAlert(String title, String contextText) {

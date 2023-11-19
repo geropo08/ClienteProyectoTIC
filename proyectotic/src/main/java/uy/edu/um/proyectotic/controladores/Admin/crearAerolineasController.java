@@ -64,7 +64,6 @@ public class crearAerolineasController {
         } catch (Exception e){
             
             showAlert("Datos Invalidos", "Error al crear aerolinea");
-            System.out.println(e.getMessage());
         }
     }
 

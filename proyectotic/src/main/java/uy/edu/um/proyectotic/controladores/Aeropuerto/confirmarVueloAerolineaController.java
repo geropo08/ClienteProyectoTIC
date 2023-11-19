@@ -9,12 +9,16 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+
+import uy.edu.um.AceptacionVuelosT;
 import uy.edu.um.VuelosDTO;
 import uy.edu.um.proyectotic.persistencia.Configuraciones;
 import uy.edu.um.proyectotic.persistencia.Datos;
 import uy.edu.um.proyectotic.persistencia.UserSession;
+import uy.edu.um.proyectotic.servicios.AeropuertoRestService;
 import uy.edu.um.proyectotic.servicios.VueloRestService;
 
 import java.util.List;
@@ -29,6 +33,8 @@ public class confirmarVueloAerolineaController {
     ConfigurableApplicationContext applicationContext;
     @Autowired
     VueloRestService vueloService;
+    @Autowired
+    AeropuertoRestService aeropuertoRestService;
 
     @FXML
     private TableView<VuelosDTO> TablaConfirmarVuelo;
@@ -94,7 +100,21 @@ public class confirmarVueloAerolineaController {
             }
         } else if (source == botonNegarVuelo) {
             if (!TablaConfirmarVuelo.getSelectionModel().isEmpty()) {
-                showAlert("Eliminado", "El vuelo ha sido eliminado");
+                VuelosDTO vueloDTO = TablaConfirmarVuelo.getSelectionModel().getSelectedItems().get(0);
+                ResponseEntity<AceptacionVuelosT> aceptacionVuelosResponseEntity=null;
+                UserSession usr=UserSession.getInstace();
+                try{
+                    aceptacionVuelosResponseEntity=aeropuertoRestService.denegarVuelo(vueloDTO.getCodigoVuelo(), usr.getEmpresa());
+                    if(aceptacionVuelosResponseEntity.getStatusCode()==HttpStatus.OK){
+                        showAlert("Eliminado", "El vuelo ha sido denegado");
+                        configuraciones.cambiarPantalla(botonAtrasConfirmarVuelo.getScene(), confirmarVueloAerolineaController.class,applicationContext);
+
+                    }
+
+                } catch (Exception e){
+                    showAlert("Error", "No se ha podido denegar el vuelo");
+                }
+                
             } else {
                 showAlert("Error", "Debe seleccionar un vuelo");
             }

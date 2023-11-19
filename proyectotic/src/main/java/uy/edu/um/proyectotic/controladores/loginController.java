@@ -5,6 +5,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
+import ch.qos.logback.core.joran.action.Action;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -78,6 +79,10 @@ public class loginController {
         }
 
         
+    }
+    @FXML
+    void registro(ActionEvent event){
+        conf.cambiarPantalla(button_inciarsesion.getScene(), registroClienteController.class, applicationContext);
     }
     private void showAlert(String title, String contextText) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

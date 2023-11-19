@@ -1,10 +1,14 @@
 package uy.edu.um.proyectotic.servicios;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import uy.edu.um.ClienteTransporte;
+import uy.edu.um.ClientesDTO;
 import uy.edu.um.UsuarioTransporte;
 import uy.edu.um.UsuariosDTO;
 
@@ -34,6 +38,23 @@ public class UsuarioRestService {
         usr.setContrasena(contrasena);
         UsuarioTransporte usuarioTransporte= new UsuarioTransporte(usr, licenciaPiloto);
         return restTemplate.postForEntity("http://localhost:8080/addUsuarios", usuarioTransporte, UsuarioTransporte.class);
+    }
+    public ResponseEntity<ClienteTransporte> crearCliente(String email, String contrasena, String nombre, String apellido, String Pasaporte, LocalDate fechaNacimiento){
+        UsuariosDTO usr = new UsuariosDTO();
+        usr.setApellido(apellido);
+        usr.setNombre(nombre);
+        usr.setRol("Cliente");
+        usr.setEmpresa(null);
+        usr.setPermiso(3);
+        usr.setEmail(email);
+        usr.setContrasena(contrasena);
+        ClientesDTO clientesDTO=new ClientesDTO();
+        clientesDTO.setPasaporte(Pasaporte);
+        clientesDTO.setEmail(email);
+        clientesDTO.setFechaNacimiento(fechaNacimiento);
+        ClienteTransporte clienteTransporte= new ClienteTransporte(clientesDTO, usr);
+        return restTemplate.postForEntity("http://localhost:8080/registrarCliente", clienteTransporte, ClienteTransporte.class);
+
     }
     
 }
