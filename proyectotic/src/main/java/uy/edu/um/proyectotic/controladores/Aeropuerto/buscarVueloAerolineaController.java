@@ -32,9 +32,6 @@ public class buscarVueloAerolineaController {
     private TableColumn<?, ?> columnaFechaSalida;
 
     @FXML
-    private Button botonAtraslistaVuelo;
-
-    @FXML
     private Button botonModificarVuelo;
 
     @FXML
@@ -42,6 +39,9 @@ public class buscarVueloAerolineaController {
 
     @FXML
     private Button botonEliminarVuelo;
+
+    @FXML
+    private TableColumn<?, ?> columnaEstadoSalida;
 
     @FXML
     private TableColumn<?, ?> columnaAerppuertoSalida;
@@ -56,7 +56,14 @@ public class buscarVueloAerolineaController {
     private TableColumn<?, ?> columnaCodigo;
 
     @FXML
+    private Button botonAtraslistaVuelo;
+
+    @FXML
+    private TableColumn<?, ?> columnaEstadoLlegada;
+
+    @FXML
     private TableColumn<?, ?> columnaAeropuertoLlegada;
+
 
     @FXML
     void atras(ActionEvent event) {
@@ -103,6 +110,8 @@ public class buscarVueloAerolineaController {
         columnaFechaLlegada.setCellValueFactory(new PropertyValueFactory("fechaLlegada"));
         columnaFechaSalida.setCellValueFactory(new PropertyValueFactory("fechaSalida"));
         columnaEstadoVuelo.setCellValueFactory(new PropertyValueFactory("estadoVuelo"));
+        columnaEstadoLlegada.setCellValueFactory(new PropertyValueFactory("estadoAceptacionLlegada"));
+        columnaEstadoSalida.setCellValueFactory(new PropertyValueFactory("estadoAceptacionSalida"));
 
     }
 

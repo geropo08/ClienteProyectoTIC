@@ -61,17 +61,23 @@ public class crearVueloController {
     @FXML
     private TextField horaSalidaCreacionVuelo;
 
+
     @FXML
-    private TextField matriculaAvionCreacionVuelo;
+    private ComboBox<String> comboBoxAvion;
 
     @FXML
     private TextField numeroVuelo;
 
+
     public void initialize(){
         UserSession usr=UserSession.getInstace();
         ResponseEntity<List<String>> asociacionTransporte=null;
+        ResponseEntity<List<String>> pilotos=null;
+        ResponseEntity<List<String>> aviones=null;
         try{
             asociacionTransporte=aerolineaRestService.getAeropuertosAsociados(usr.getEmpresa());
+            pilotos=aerolineaRestService.getPilotos(usr.getEmpresa());
+            aviones=aerolineaRestService.getListaAviones(usr.getEmpresa());
         } catch(Exception e){
             showAlert("Error", "Error al buscar aeropuertos");
         }
@@ -79,6 +85,11 @@ public class crearVueloController {
         comboBoxIataSalida.getItems().setAll(asociacionTransporte.getBody());
         comboBoxIataLlegada.getItems().removeAll(comboBoxIataLlegada.getItems());
         comboBoxIataLlegada.getItems().setAll(asociacionTransporte.getBody());
+
+        comboBoxPilotos.getItems().removeAll(comboBoxPilotos.getItems());
+        comboBoxPilotos.getItems().setAll(pilotos.getBody());
+        comboBoxAvion.getItems().removeAll(comboBoxAvion.getItems());
+        comboBoxAvion.getItems().setAll(aviones.getBody());
         
 
 
@@ -103,7 +114,7 @@ public class crearVueloController {
         UserSession usr=UserSession.getInstace();
 
         try{
-            vueloResponseEntity=vueloRestService.crearVuelo(comboBoxIataLlegada.getValue(), comboBoxIataSalida.getValue(), usr.getEmpresa(), fechaSalidaCreacionVuelo.getValue(), horaSalidaCreacionVuelo.getText(), fechaLlegadaCreacionVuelo.getValue(), horaLlegadaCrecionVuelo.getText(), numeroVuelo.getText(), matriculaAvionCreacionVuelo.getText());
+            vueloResponseEntity=vueloRestService.crearVuelo(comboBoxIataLlegada.getValue(), comboBoxIataSalida.getValue(), usr.getEmpresa(), fechaSalidaCreacionVuelo.getValue(), horaSalidaCreacionVuelo.getText(), fechaLlegadaCreacionVuelo.getValue(), horaLlegadaCrecionVuelo.getText(), numeroVuelo.getText(), comboBoxAvion.getValue());
             if(vueloResponseEntity.getStatusCode()==HttpStatus.OK){
                 showAlert("Exito en la creacion!", "Se ha creado el vuelo "+numeroVuelo.getText());
             }

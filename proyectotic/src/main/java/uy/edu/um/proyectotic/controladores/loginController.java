@@ -98,7 +98,8 @@ public class loginController {
         alert.showAndWait();
     }
 
-
-
-    
+    @FXML
+    public void verInfo(ActionEvent actionEvent) {
+        showAlert("Informes", "No hay informes disponibles");
+    }
 }

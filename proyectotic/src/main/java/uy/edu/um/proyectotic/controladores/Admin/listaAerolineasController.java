@@ -46,7 +46,7 @@ public class listaAerolineasController {
     private Button botonParaAtarasListaAerolineas;
 
     @FXML
-    private TableColumn<?, ?> columnaContactoAerolinea;
+    private TableColumn<?, ?> columnaCodigo;
 
     @FXML
     private TableColumn<?, ?> columnaContacto;
@@ -89,7 +89,7 @@ public class listaAerolineasController {
         tablaDatosAerolinea.setItems(aerolineasObservableList);
 
         columnaNombreAerolinea.setCellValueFactory(new PropertyValueFactory("nombre"));
-        columnaContactoAerolinea.setCellValueFactory(new PropertyValueFactory("contacto"));
+        columnaCodigo.setCellValueFactory(new PropertyValueFactory("codigo"));
         columnaSede.setCellValueFactory(new PropertyValueFactory("sedePrincipal"));
         columnaContacto.setCellValueFactory(new PropertyValueFactory("contacto"));
     }

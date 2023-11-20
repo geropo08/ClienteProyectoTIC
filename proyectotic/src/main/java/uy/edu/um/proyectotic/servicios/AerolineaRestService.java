@@ -61,4 +61,12 @@ public class AerolineaRestService {
         return restTemplate.exchange("http://localhost:8080/vuelosComprados", HttpMethod.POST, requestEntity,  new ParameterizedTypeReference<List<VuelosDTO>>(){});
 
     }
+
+    public ResponseEntity<List<String>> getPilotos(String empresa) {
+        return restTemplate.exchange("http://localhost:8080/getPilotos/"+empresa,  HttpMethod.GET, null, new ParameterizedTypeReference<List<String>>(){});
+    }
+
+    public ResponseEntity<List<String>> getListaAviones(String empresa) {
+        return restTemplate.exchange("http://localhost:8080/getListaAviones/"+empresa,  HttpMethod.GET, null, new ParameterizedTypeReference<List<String>>(){});
+    }
 }
