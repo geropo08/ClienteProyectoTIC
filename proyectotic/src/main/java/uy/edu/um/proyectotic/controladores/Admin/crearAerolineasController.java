@@ -55,15 +55,20 @@ public class crearAerolineasController {
     @FXML
     void crearAereolinea(ActionEvent event) {
         ResponseEntity<AerolineaTransporte> aerolineaTransporte=null;
+        if(nombre_aerolinea_reg_aeropuerto.getText()==null || codigo_aerolinea_reg_aeropuerto.getText()==null || codigo_aerolinea_reg_aeropuerto.getText().length()!=3 || contacto_aerolinea_reg_aeropuerto.getText()==null || sede_principal_aerolinea_reg_aeropuerto.getText()==null || emailAerolineaCreacion.getText()==null || contrasenaAerolineaCreacion.getText()==null ){
+            showAlert("Datos Invalidos", "No puede dejar campos vacios");
 
-        try{
-            aerolineaTransporte=aerolineaRestService.crearAerolinea(nombre_aerolinea_reg_aeropuerto.getText(), codigo_aerolinea_reg_aeropuerto.getText(), contacto_aerolinea_reg_aeropuerto.getText(), sede_principal_aerolinea_reg_aeropuerto.getText(), emailAerolineaCreacion.getText(), contrasenaAerolineaCreacion.getText());
-            if(aerolineaTransporte.getStatusCode()==HttpStatus.OK){
-                showAlert("Exito en la creacion!", "Se ha creado la aerolinea "+nombre_aerolinea_reg_aeropuerto.getText()+" y el usuario "+emailAerolineaCreacion.getText());
+        } else {
+
+            try{
+                aerolineaTransporte=aerolineaRestService.crearAerolinea(nombre_aerolinea_reg_aeropuerto.getText(), codigo_aerolinea_reg_aeropuerto.getText(), contacto_aerolinea_reg_aeropuerto.getText(), sede_principal_aerolinea_reg_aeropuerto.getText(), emailAerolineaCreacion.getText(), contrasenaAerolineaCreacion.getText());
+                if(aerolineaTransporte.getStatusCode()==HttpStatus.OK){
+                    showAlert("Exito en la creacion!", "Se ha creado la aerolinea "+nombre_aerolinea_reg_aeropuerto.getText()+" y el usuario "+emailAerolineaCreacion.getText());
+                }
+            } catch (Exception e){
+                
+                showAlert("Datos Invalidos", "Error al crear aerolinea");
             }
-        } catch (Exception e){
-            
-            showAlert("Datos Invalidos", "Error al crear aerolinea");
         }
     }
 

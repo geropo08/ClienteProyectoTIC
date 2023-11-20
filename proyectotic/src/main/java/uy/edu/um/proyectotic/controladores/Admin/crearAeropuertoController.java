@@ -62,13 +62,16 @@ public class crearAeropuertoController {
 
     public void crearAeropuerto(ActionEvent actionEvent) {
         ResponseEntity<AeropuertoTransporte> aeropuertoResponse=null;
-
-        try{
-            aeropuertoResponse=aeropuertoRestService.crearAeropuerto(emailCrearAeropuerto.getText(), contrasenaAeropuerto.getText(), paisCrearAeropuerto.getText(), codigoIataAeropuerto.getText(), nombreCearAeropuerto.getText(), cantidadPuertasAeropuerto.getText(), cantidadMangasAeropuerto.getText(), cantidadPuestosCheckInAeropuerto.getText());
-            showAlert("Exito en la creacion!", "Se ha creado el aeropuerto "+nombreCearAeropuerto.getText()+" y el usuario "+emailCrearAeropuerto.getText());
-        } catch (Exception e){
-            
-            showAlert("Datos Invalidos", "Error al crear aeropuerto");
+        if(emailCrearAeropuerto.getText()==null || contrasenaAeropuerto.getText()==null || paisCrearAeropuerto.getText()==null || codigoIataAeropuerto.getText()==null || codigoIataAeropuerto.getText().length()!=3 || nombreCearAeropuerto.getText()==null || cantidadPuertasAeropuerto.getText()==null || cantidadMangasAeropuerto.getText()==null || cantidadPuestosCheckInAeropuerto.getText()==null){
+            showAlert("Datos Invalidos", "Debe rellenar todos los campos");
+        } else {
+            try{
+                aeropuertoResponse=aeropuertoRestService.crearAeropuerto(emailCrearAeropuerto.getText(), contrasenaAeropuerto.getText(), paisCrearAeropuerto.getText(), codigoIataAeropuerto.getText(), nombreCearAeropuerto.getText(), cantidadPuertasAeropuerto.getText(), cantidadMangasAeropuerto.getText(), cantidadPuestosCheckInAeropuerto.getText());
+                showAlert("Exito en la creacion!", "Se ha creado el aeropuerto "+nombreCearAeropuerto.getText()+" y el usuario "+emailCrearAeropuerto.getText());
+            } catch (Exception e){
+                
+                showAlert("Datos Invalidos", "Error al crear aeropuerto");
+            }
         }
     }
 
