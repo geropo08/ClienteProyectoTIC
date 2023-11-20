@@ -38,7 +38,7 @@
       <TableView fx:id="tablaDatosAerolinea" layoutX="158.0" layoutY="89.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="329.0">
         <columns>
           <TableColumn fx:id="columnaNombreAerolinea" prefWidth="75.0" text="Nombre" />
-          <TableColumn fx:id="columnaContactoAerolinea" prefWidth="74.0" text="Código" />
+          <TableColumn fx:id="columnaCodigo" prefWidth="74.0" text="Código" />
             <TableColumn fx:id="columnaSede" prefWidth="82.0" text="Sede" />
             <TableColumn fx:id="columnaContacto" prefWidth="97.0" text="Contacto" />
         </columns>

@@ -64,7 +64,7 @@ public class seleccionarVueloController {
 
     @FXML
     void atras(ActionEvent event) {
-        configuraciones.cambiarPantalla(botonAtrasSeleccionaraVuelo.getScene(), vistaAeropuertoController.class,applicationContext);
+        configuraciones.cambiarPantalla(botonAtrasSeleccionaraVuelo.getScene(), vistaAerolineaController.class,applicationContext);
     }
 
     @FXML

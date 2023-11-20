@@ -62,7 +62,7 @@ public class asociarPasajeroVueloController {
     @FXML
     void atras(ActionEvent event) {
         Datos.leaveInstance();
-        conf.cambiarPantalla(botonAtrasAsociarPasajero.getScene(), vistaAeropuertoController.class,applicationContext);
+        conf.cambiarPantalla(botonAtrasAsociarPasajero.getScene(), vistaAerolineaController.class,applicationContext);
     }
 
     private void showAlert(String title, String contextText) {
