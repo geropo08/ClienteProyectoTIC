@@ -31,6 +31,7 @@ public class crearPistaController {
     Configuraciones configuraciones;
     @Autowired
     AeropuertoRestService aeropuertoRestService;
+    
     private int contador=2;
 
     @FXML
@@ -92,6 +93,7 @@ public class crearPistaController {
 
     @FXML
     void atras(ActionEvent event) {
+        contador=2;
         configuraciones.cambiarPantalla(botonAtrasCrearPista.getScene(), vistaAeropuertoController.class,applicationContext);
     }
 
@@ -116,6 +118,7 @@ public class crearPistaController {
             pResponseEntity=aeropuertoRestService.crearPistas(usr.getEmpresa(),listaPistas);
             if(pResponseEntity.getStatusCode()==HttpStatus.OK){
                 showAlert("Exito en la creacion!", "Se han creado las pistas.");
+                
             }
         } catch (Exception e){
             

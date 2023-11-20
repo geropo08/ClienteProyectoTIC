@@ -20,7 +20,7 @@ public class VueloRestService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public ResponseEntity<VuelosDTO> crearVuelo(String iataLlegada, String iataSalida, String aerolinea, LocalDate fechaSalida, String horaSalida, LocalDate fechaLlegada, String horaLlegada, String idVuelo, String matricula){
+    public ResponseEntity<VuelosDTO> crearVuelo(String iataLlegada, String iataSalida, String aerolinea, LocalDate fechaSalida, String horaSalida, LocalDate fechaLlegada, String horaLlegada, String idVuelo, String matricula, String licenciaPiloto){
         VuelosDTO vuelo=new VuelosDTO();
         vuelo.setCodigoVuelo(idVuelo);
         vuelo.setAeropuertoSalida(iataSalida);
@@ -31,6 +31,7 @@ public class VueloRestService {
         vuelo.setHoraSalida(horaSalida);
         vuelo.setAerolinea(aerolinea);
         vuelo.setMatricula(matricula);
+        vuelo.setLicenciaPiloto(licenciaPiloto);
 
         return restTemplate.postForEntity("http://localhost:8080/crearVuelo", vuelo, VuelosDTO.class);
     }

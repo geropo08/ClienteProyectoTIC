@@ -9,6 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.event.ActionEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -66,6 +67,12 @@ public class listaVuelosAerolineasController {
     private TableColumn<?, ?> columnaPiloto;
 
     @FXML
+    private TableColumn<VuelosDTO, Boolean>  columnaEstadoSalida;
+
+    @FXML
+    private TableColumn<VuelosDTO, Boolean>  columnaEstadoLlegada;
+
+    @FXML
     void atras(ActionEvent event) {
         configuraciones.cambiarPantalla(botonAtrasVuelo.getScene(), vistaAerolineaController.class,applicationContext);
     }
@@ -90,6 +97,37 @@ public class listaVuelosAerolineasController {
         columnaEstadoVuelo.setCellValueFactory(new PropertyValueFactory("estadoVuelo"));
         columnaMatricula.setCellValueFactory(new PropertyValueFactory("matricula"));
         columnaFechaSalida.setCellValueFactory(new PropertyValueFactory("fechaSalida"));
+        columnaEstadoLlegada.setCellValueFactory(new PropertyValueFactory("estadoAceptacionLlegada"));
+        columnaEstadoSalida.setCellValueFactory(new PropertyValueFactory("estadoAceptacionSalida"));
+        
+        columnaEstadoSalida.setCellFactory(tc -> new TextFieldTableCell<>(){
+            @Override
+            public void updateItem(Boolean item,boolean empty){
+                super.updateItem(item, empty);
+                if(item == null){
+                    setText(null);
+                } else if(item==true){
+                    setText("Confirmado");
+                } else if(item==false){
+                    setText("Denegado");
+                }
+            }
+                
+        });
+        columnaEstadoLlegada.setCellFactory(tc -> new TextFieldTableCell<>(){
+            @Override
+            public void updateItem(Boolean item,boolean empty){
+                super.updateItem(item, empty);
+                if(empty || item ==null){
+                    setText(null);
+                } else if(item==true){
+                    setText("Confirmado");
+                } else if(item==false){
+                    setText("Denegado");
+                }
+            }
+                
+        });
 
     }
 

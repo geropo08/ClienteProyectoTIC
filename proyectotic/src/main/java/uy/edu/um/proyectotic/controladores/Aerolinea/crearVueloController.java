@@ -114,7 +114,7 @@ public class crearVueloController {
         UserSession usr=UserSession.getInstace();
 
         try{
-            vueloResponseEntity=vueloRestService.crearVuelo(comboBoxIataLlegada.getValue(), comboBoxIataSalida.getValue(), usr.getEmpresa(), fechaSalidaCreacionVuelo.getValue(), horaSalidaCreacionVuelo.getText(), fechaLlegadaCreacionVuelo.getValue(), horaLlegadaCrecionVuelo.getText(), numeroVuelo.getText(), comboBoxAvion.getValue());
+            vueloResponseEntity=vueloRestService.crearVuelo(comboBoxIataLlegada.getValue(), comboBoxIataSalida.getValue(), usr.getEmpresa(), fechaSalidaCreacionVuelo.getValue(), horaSalidaCreacionVuelo.getText(), fechaLlegadaCreacionVuelo.getValue(), horaLlegadaCrecionVuelo.getText(), numeroVuelo.getText(), comboBoxAvion.getValue(), comboBoxPilotos.getValue());
             if(vueloResponseEntity.getStatusCode()==HttpStatus.OK){
                 showAlert("Exito en la creacion!", "Se ha creado el vuelo "+numeroVuelo.getText());
             }

@@ -91,6 +91,7 @@ public class crearPuertaController {
     }
     @FXML
     void atras(ActionEvent event) {
+        contador=2;
         configuraciones.cambiarPantalla(botonAtrasCrearPuerta.getScene(), vistaAeropuertoController.class,applicationContext);
     }
     @FXML
