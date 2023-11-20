@@ -59,9 +59,9 @@ public class listaAeropuertosController {
         }else{
             Boolean eliminado = eliminarAeropuertoAux(tablaDatosAeropuertos.getSelectionModel().getSelectedItem().getCodigoIATA());
             if(eliminado){
-                showAlert("Exito", "Se elimino la aerolinea");
+                showAlert("Exito", "Se elimino la aeropuerto");
             }else{
-                showAlert("Error", "Hubo un error al eliminar la aerolinea");
+                showAlert("Error", "Hubo un error al eliminar el aeropuerto");
             }
         }
     }

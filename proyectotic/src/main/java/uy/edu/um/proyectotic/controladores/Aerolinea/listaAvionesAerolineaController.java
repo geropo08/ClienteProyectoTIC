@@ -63,13 +63,13 @@ public class listaAvionesAerolineaController {
     @FXML
     public void eliminarAvion(ActionEvent actionEvent) {
         if(tablaAvionesAerolinea.getSelectionModel().getSelectedItem()==null){
-            showAlert("Datos Invalidos", "No se selecciono ninguna aerolinea");
+            showAlert("Datos Invalidos", "No se selecciono ningun avion");
         }else{
             Boolean eliminado = eliminarAvionAux(tablaAvionesAerolinea.getSelectionModel().getSelectedItem().getMatricula());
             if(eliminado){
-                showAlert("Exito", "Se elimino la aerolinea");
+                showAlert("Exito", "Se elimino el avion");
             }else{
-                showAlert("Error", "Hubo un error al eliminar la aerolinea");
+                showAlert("Error", "Hubo un error al eliminar el avion");
             }
         }
     }
@@ -77,7 +77,7 @@ public class listaAvionesAerolineaController {
     @FXML
     public void modificarAvion(ActionEvent actionEvent) {
         if(tablaAvionesAerolinea.getSelectionModel().getSelectedItem()==null){
-            showAlert("Datos Invalidos", "No se selecciono ninguna aerolinea");
+            showAlert("Datos Invalidos", "No se selecciono ningun avion");
         }else{
             showAlert("No funciona", "No funciona");
             //configuraciones.cambiarPantalla(botonParaAtarasListaAerolineas.getScene(), modificarAerolineaController.class,applicationContext);

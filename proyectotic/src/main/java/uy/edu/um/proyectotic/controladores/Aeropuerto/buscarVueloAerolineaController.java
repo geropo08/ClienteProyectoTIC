@@ -73,7 +73,7 @@ public class buscarVueloAerolineaController {
     @FXML
     void modificarVuelo(ActionEvent event) {
         if(TablaVuelos.getSelectionModel().getSelectedItem()==null){
-            showAlert("Datos Invalidos", "No se selecciono ningun Empleado");
+            showAlert("Datos Invalidos", "No se selecciono ningun Vuelo");
         }else{
             //modiifcar
         }
@@ -82,13 +82,13 @@ public class buscarVueloAerolineaController {
     @FXML
     void eliminarVuelo(ActionEvent event) {
         if(TablaVuelos.getSelectionModel().getSelectedItem()==null){
-            showAlert("Datos Invalidos", "No se selecciono ningun Empleado");
+            showAlert("Datos Invalidos", "No se selecciono ningun Vuelo");
         }else{
             Boolean eliminado = eliminarVuelooAux(TablaVuelos.getSelectionModel().getSelectedItem().getCodigoVuelo());
             if(eliminado){
-                showAlert("Exito", "Se elimino el Empleado");
+                showAlert("Exito", "Se elimino el Vuelo");
             }else{
-                showAlert("Error", "Hubo un error al eliminar el Empleado");
+                showAlert("Error", "Hubo un error al eliminar el Vuelo");
             }
         }
     }
